@@ -1,0 +1,105 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Imports
+// ============================================================================
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/animations' as *;
+
+// ============================================================================
+// Main Container
+// ============================================================================
+.projects {
+  padding: $education-section-padding;
+  background: var(--bg-primary);
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba($color-primary, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba($color-secondary, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__container {
+    margin: 0 auto;
+    padding: 0 $spacing-xl;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+  }
+
+  &__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-4xl;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+  }
+}
+
+// ============================================================================
+// Responsive Styles
+// ============================================================================
+@include respond-to(md) {
+  .projects {
+    padding: $education-section-padding-mobile;
+
+    &__container {
+      padding: 0 $spacing-lg;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .projects {
+    background: var(--bg-primary);
+
+    &::before {
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    }
+
+    &__title {
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}

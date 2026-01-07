@@ -1,0 +1,421 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Hero Section - Main Container
+// ============================================================================
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23F1F5F9" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+}
+
+// ============================================================================
+// Floating Particles
+// ============================================================================
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  
+  &.particle-1 {
+    top: 20%;
+    left: 10%;
+    animation: particleFloat 8s ease-in-out infinite;
+  }
+  
+  &.particle-2 {
+    top: 60%;
+    right: 15%;
+    animation: particleFloat 10s ease-in-out infinite 2s;
+  }
+  
+  &.particle-3 {
+    bottom: 30%;
+    left: 20%;
+    animation: particleFloat 12s ease-in-out infinite 4s;
+  }
+  
+  &.particle-4 {
+    top: 40%;
+    right: 30%;
+    animation: particleFloat 9s ease-in-out infinite 6s;
+  }
+}
+
+// ============================================================================
+// Hero Container and Layout
+// ============================================================================
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+// ============================================================================
+// Hero Text Content
+// ============================================================================
+.hero-text {
+  .hero-greeting {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+    
+    .hero-name {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+  }
+  
+  .hero-title {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-6xl);
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.1;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+    animation: fadeInUp 1.2s ease-out;
+    position: relative;
+    
+    &::after {
+      content: '|';
+      color: var(--primary-color);
+      animation: blink 1s infinite;
+      margin-left: 4px;
+    }
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+    line-height: 1.6;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+}
+
+// ============================================================================
+// Hero Image / Avatar
+// ============================================================================
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .avatar-container {
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: pulse 3s ease-in-out infinite;
+    }
+  }
+  
+  .avatar-placeholder {
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft), 0 0 50px rgba(139, 92, 246, 0.2);
+    position: relative;
+    animation: subtleFloat 8s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(139, 92, 246, 0.3);
+      animation-play-state: paused;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      background: var(--gradient-secondary);
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: subtlePulse 6s ease-in-out infinite;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: var(--gradient-accent);
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: subtlePulse 8s ease-in-out infinite reverse;
+    }
+    
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 50%;
+      z-index: 1;
+      position: relative;
+      animation: subtleBreath 4s ease-in-out infinite;
+    }
+    
+    .avatar-text {
+      font-size: 8rem;
+      font-weight: 900;
+      color: white;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      position: relative;
+      animation: heartBeat 2s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// ============================================================================
+// Scroll Indicator
+// ============================================================================
+.scroll-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--text-secondary);
+  z-index: 10;
+  
+  .scroll-arrow {
+    font-size: var(--font-size-2xl);
+    animation: bounce 2s infinite;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .scroll-text {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+}
+
+// ============================================================================
+// RTL Support
+// ============================================================================
+[dir="rtl"] {
+  .hero-content {
+    direction: rtl;
+  }
+  
+  .hero-buttons {
+    flex-direction: row-reverse;
+  }
+}
+
+// ============================================================================
+// Responsive Design - Tablet (Below 1024px)
+// ============================================================================
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .avatar-placeholder {
+    width: 250px;
+    height: 250px;
+    
+    .avatar-text {
+      font-size: 6rem;
+    }
+  }
+  
+  .scroll-indicator {
+    bottom: 10px;
+  }
+}
+
+// ============================================================================
+// Responsive Design - Mobile (Below 768px)
+// ============================================================================
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: var(--spacing-2xl) 0;
+    padding-bottom: calc(var(--spacing-2xl) + 80px);
+  }
+  
+  .hero-container {
+    padding: 0 var(--spacing-md);
+    padding-bottom: var(--spacing-3xl);
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .avatar-placeholder {
+    width: 200px;
+    height: 200px;
+    
+    .avatar-text {
+      font-size: 4rem;
+    }
+  }
+  
+  .scroll-indicator {
+    bottom: 10px;
+  }
+}
+
+// ============================================================================
+// Responsive Design - Small Mobile (Below 480px)
+// ============================================================================
+@media (max-width: 480px) {
+  .hero-section {
+    padding-bottom: calc(var(--spacing-xl) + 70px);
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    
+    .avatar-text {
+      font-size: 3rem;
+    }
+  }
+  
+  .scroll-indicator {
+    bottom: 10px;
+  }
+}
+
+// ============================================================================
+// Custom Animations
+// ============================================================================
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.25;
+  }
+}
+
+@keyframes subtleBreath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}

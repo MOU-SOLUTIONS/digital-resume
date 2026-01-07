@@ -1,0 +1,35 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section class="projects" id="projects">
+  <div class="projects__container">
+    <!-- ============================================================================ -->
+    <!-- Section Title -->
+    <!-- ============================================================================ -->
+    <h2 class="projects__title">
+      {{ getTranslation('projects.title') }}
+    </h2>
+    
+    <!-- ============================================================================ -->
+    <!-- Master Project -->
+    <!-- ============================================================================ -->
+    <app-master-project 
+      *ngIf="masterProjects.length > 0"
+      [project]="masterProjects[0]"
+    ></app-master-project>
+
+    <!-- ============================================================================ -->
+    <!-- Secondary Projects -->
+    <!-- ============================================================================ -->
+    <app-secondary-projects 
+      *ngIf="secondaryProjects.length > 0"
+      [projects]="secondaryProjects"
+    ></app-secondary-projects>
+  </div>
+</section>

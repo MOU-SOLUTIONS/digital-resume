@@ -1,0 +1,92 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- Main Navigation Bar -->
+<nav class="navbar" [class.navbar-scrolled]="isScrolled" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    
+    <!-- Brand / Logo Section -->
+    <div class="nav-brand">
+      <a routerLink="/" class="brand-link" [attr.aria-label]="languageService.getTranslation('home.name')">
+        <span class="brand-text">{{ languageService.getTranslation('home.name') }}</span>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation Menu -->
+    <div class="nav-menu" [class.nav-menu-open]="isMenuOpen" [attr.aria-hidden]="!isMenuOpen">
+      <a 
+        href="#home" 
+        class="nav-link" 
+        (click)="scrollToSection('home', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.home')">
+        {{ languageService.getTranslation('nav.home') }}
+      </a>
+      <a 
+        href="#about" 
+        class="nav-link" 
+        (click)="scrollToSection('about', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.about')">
+        {{ languageService.getTranslation('nav.about') }}
+      </a>
+      <a 
+        href="#experience" 
+        class="nav-link" 
+        (click)="scrollToSection('experience', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.experience')">
+        {{ languageService.getTranslation('nav.experience') }}
+      </a>
+      <a 
+        href="#skills" 
+        class="nav-link" 
+        (click)="scrollToSection('skills', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.skills')">
+        {{ languageService.getTranslation('nav.skills') }}
+      </a>
+      <a 
+        href="#projects" 
+        class="nav-link" 
+        (click)="scrollToSection('projects', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.projects')">
+        {{ languageService.getTranslation('nav.projects') }}
+      </a>
+      <a 
+        href="#education" 
+        class="nav-link" 
+        (click)="scrollToSection('education', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.education')">
+        {{ languageService.getTranslation('nav.education') }}
+      </a>
+      <a 
+        href="#certifications" 
+        class="nav-link" 
+        (click)="scrollToSection('certifications', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.certifications')">
+        {{ languageService.getTranslation('nav.certifications') }}
+      </a>
+      <a 
+        href="#contact" 
+        class="nav-link" 
+        (click)="scrollToSection('contact', $event)"
+        [attr.aria-label]="languageService.getTranslation('nav.contact')">
+        {{ languageService.getTranslation('nav.contact') }}
+      </a>
+    </div>
+
+    <!-- Controls Section: Theme Toggle, Language Switcher, Mobile Menu -->
+    <div class="nav-controls">
+      <app-theme-toggle></app-theme-toggle>
+      <app-language-switcher></app-language-switcher>
+      <button 
+        class="mobile-menu-btn" 
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'"
+        type="button">
+        <span class="menu-icon" [attr.aria-hidden]="true">{{ isMenuOpen ? '✕' : '☰' }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

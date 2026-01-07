@@ -1,0 +1,78 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section 
+  id="certifications"
+  class="certification-section"
+  role="region"
+  aria-labelledby="certifications-title"
+  itemscope
+  itemtype="https://schema.org/ItemList"
+  [attr.data-section]="'certifications'"
+  [attr.itemprop]="'mainEntity'">
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 id="certifications-title" class="section-title" itemprop="name">🏅 {{ languageService.getTranslation('certifications.title') }} & {{ languageService.getTranslation('certifications.professionalTraining') }}</h2>
+    </header>
+
+    <!-- ============================================================================ -->
+    <!-- Certification Categories -->
+    <!-- ============================================================================ -->
+    <div class="certification-categories" role="list">
+      <div 
+        class="certification-category" 
+        *ngFor="let category of certificationCategories; trackBy: trackByCategory"
+        itemscope
+        itemtype="https://schema.org/ItemList">
+        <h3 class="category-title" itemprop="name">{{ getCategoryTitle(category) }}</h3>
+        <!-- ============================================================================ -->
+        <!-- Certification List -->
+        <!-- ============================================================================ -->
+        <div class="certification-list">
+          <article 
+            class="certification-wrapper" 
+            *ngFor="let cert of category.certifications; trackBy: trackByCert; let i = index"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            role="listitem"
+            [attr.aria-label]="getAriaLabel(cert)">
+            <meta itemprop="position" [attr.content]="i + 1">
+            <div class="certification-logo" *ngIf="cert.logo" aria-hidden="true">
+              <img 
+                [src]="cert.logo" 
+                [alt]="getLogoAlt(cert)" 
+                loading="lazy" 
+                decoding="async"
+                itemprop="image">
+            </div>
+            <div class="certification-item">
+              <div class="certification-content">
+                <div class="certification-main">
+                  <div class="certification-name" itemprop="name">{{ getCertName(cert) }}</div>
+                  <div class="certification-meta">
+                    <span class="certification-issuer" itemprop="recognizedBy" itemscope itemtype="https://schema.org/Organization">
+                      <span itemprop="name">{{ getCertIssuer(cert) }}</span>
+                    </span>
+                    <span class="certification-separator" aria-hidden="true">·</span>
+                    <time class="certification-date" [attr.datetime]="cert.date" itemprop="dateCreated">{{ formatDate(cert.date) }}</time>
+                  </div>
+                  <div class="certification-description" *ngIf="cert.descriptionKey" itemprop="description">{{ getCertDescription(cert) }}</div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

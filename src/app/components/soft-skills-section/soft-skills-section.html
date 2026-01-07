@@ -1,0 +1,81 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section id="soft-skills" 
+         class="soft-skills-section" 
+         role="region" 
+         [attr.aria-label]="languageService.getTranslation('softSkills.title')" 
+         itemscope 
+         itemtype="https://schema.org/ItemList"
+         [attr.data-section]="'soft-skills'"
+         [attr.itemprop]="'mainEntity'">
+  <!-- ============================================================================ -->
+  <!-- Animated Background Elements -->
+  <!-- ============================================================================ -->
+  <div class="animated-bg" aria-hidden="true">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+  <!-- ============================================================================ -->
+  <!-- Main Content Container -->
+  <!-- ============================================================================ -->
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('softSkills.title') }}</h2>
+      <p class="section-subtitle" itemprop="description">{{ languageService.getTranslation('softSkills.subtitle') }}</p>
+    </header>
+    <!-- ============================================================================ -->
+    <!-- Skills Grid -->
+    <!-- ============================================================================ -->
+    <div class="skills-container" role="list">
+      <article class="skill-category" 
+           *ngFor="let category of skills; trackBy: trackByCategoryName; let i = index" 
+           [class.highlight]="category.highlight"
+           itemprop="itemListElement"
+           itemscope
+           itemtype="https://schema.org/ListItem"
+           role="listitem"
+           [attr.aria-label]="languageService.getTranslation(getCategoryTranslationKey(category))"
+           [style.animation-delay]="(i * 0.15) + 's'">
+        <meta itemprop="position" [attr.content]="i + 1">
+        <!-- ============================================================================ -->
+        <!-- Category Icon Badge -->
+        <!-- ============================================================================ -->
+        <div class="category-icon-wrapper">
+          <div class="category-icon" 
+               [attr.aria-label]="languageService.getTranslation(getCategoryTranslationKey(category))" 
+               [attr.aria-hidden]="'true'">{{ category.icon }}</div>
+        </div>
+        <!-- ============================================================================ -->
+        <!-- Category Content -->
+        <!-- ============================================================================ -->
+        <div class="category-content">
+          <h3 class="category-title" itemprop="name">{{ languageService.getTranslation(getCategoryTranslationKey(category)) || category.name }}</h3>
+          <!-- ============================================================================ -->
+          <!-- Skills List -->
+          <!-- ============================================================================ -->
+          <ul class="skill-list" role="list" [attr.itemprop]="'itemListElement'">
+            <li class="skill-item" 
+                *ngFor="let skill of getSkillsForCategory(category); trackBy: trackBySkillIndex; let skillIndex = index" 
+                role="listitem" 
+                itemprop="item"
+                [attr.id]="'soft-skill-' + category.name + '-' + skillIndex">
+              <span class="skill-marker" aria-hidden="true"></span>
+              <span class="skill-text" [attr.itemprop]="'name'">{{ skill }}</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

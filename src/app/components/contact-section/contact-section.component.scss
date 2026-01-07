@@ -1,0 +1,237 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Main Section Container
+// ============================================================================
+.contact-section {
+  background: var(--bg-secondary);
+  padding: var(--spacing-5xl) 0;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 25% 75%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    animation: gradientShift 25s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  // ============================================================================
+  // Container
+  // ============================================================================
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  // ============================================================================
+  // Section Header
+  // ============================================================================
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+    
+    .section-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+        animation: underlineExpand 1s ease-out;
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Contact Content
+  // ============================================================================
+  .contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    
+    p {
+      font-size: var(--font-size-lg);
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-2xl);
+      padding: var(--spacing-xl);
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+      }
+    }
+    
+    .contact-info {
+      display: grid;
+      gap: var(--spacing-lg);
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        &:hover {
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: var(--shadow-lg), 0 0 20px rgba(99, 102, 241, 0.2);
+          border-color: var(--primary-color);
+          
+          &::before {
+            left: 100%;
+          }
+          
+          .contact-label {
+            color: var(--primary-color);
+          }
+          
+          a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+          }
+        }
+        
+        .contact-label {
+          font-weight: 600;
+          color: var(--text-primary);
+          transition: color 0.3s ease;
+        }
+        
+        a {
+          color: var(--primary-color);
+          text-decoration: none;
+          transition: all 0.3s ease;
+          font-weight: 500;
+          
+          &:hover {
+            color: var(--primary-dark);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+// ============================================================================
+// Media Queries - Tablet
+// ============================================================================
+@media (max-width: 768px) {
+  .contact-section {
+    padding: var(--spacing-4xl) 0;
+    
+    .contact-content {
+      p {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-lg);
+      }
+      
+      .contact-info {
+        gap: var(--spacing-md);
+        
+        .contact-item {
+          padding: var(--spacing-md);
+          flex-direction: column;
+          gap: var(--spacing-sm);
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .contact-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    
+    .section-title {
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      &::after {
+        background: var(--gradient-primary);
+      }
+    }
+  }
+}

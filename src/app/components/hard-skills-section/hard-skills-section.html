@@ -1,0 +1,79 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section id="skills" 
+         class="hard-skills-section" 
+         role="region" 
+         [attr.aria-label]="languageService.getTranslation('skills.title')" 
+         itemscope 
+         itemtype="https://schema.org/ItemList"
+         [attr.data-section]="'skills'"
+         [attr.itemprop]="'mainEntity'">
+  
+  <!-- ============================================================================ -->
+  <!-- Animated Background Elements -->
+  <!-- ============================================================================ -->
+  <div class="animated-bg" aria-hidden="true">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+  </div>
+  
+  <!-- ============================================================================ -->
+  <!-- Main Content Container -->
+  <!-- ============================================================================ -->
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('skills.title') }}</h2>
+      <p class="section-subtitle" itemprop="description">{{ languageService.getTranslation('skills.subtitle') }}</p>
+    </header>
+    
+    <!-- ============================================================================ -->
+    <!-- Skills Grid -->
+    <!-- ============================================================================ -->
+    <div class="skills-grid" role="list">
+      <article class="skill-category" 
+           *ngFor="let category of skills; trackBy: trackByIndex; let i = index" 
+           [class.highlight]="category.highlight"
+           itemprop="itemListElement"
+           itemscope
+           itemtype="https://schema.org/ListItem"
+           role="listitem"
+           [attr.aria-label]="languageService.getTranslation('skills.' + category.name.toLowerCase())"
+           [style.animation-delay]="(i * 0.1) + 's'">
+        <meta itemprop="position" [attr.content]="i + 1">
+        
+        <!-- ============================================================================ -->
+        <!-- Category Header -->
+        <!-- ============================================================================ -->
+        <div class="category-header">
+          <div class="category-icon" [attr.aria-label]="category.name" [attr.aria-hidden]="'true'">{{ category.icon }}</div>
+          <h3 class="category-title" itemprop="name">{{ languageService.getTranslation('skills.' + category.name.toLowerCase()) || category.name }}</h3>
+        </div>
+        
+        <!-- ============================================================================ -->
+        <!-- Skills List -->
+        <!-- ============================================================================ -->
+        <div class="skill-tags" role="list" [attr.itemprop]="'itemListElement'">
+          <span class="skill-tag" 
+                *ngFor="let skill of getSkillsForCategory(category); trackBy: trackByIndex; let skillIndex = index" 
+                role="listitem" 
+                itemprop="item"
+                [attr.id]="'skill-' + category.name + '-' + skillIndex">
+            <span class="skill-bullet" aria-hidden="true"></span>
+            <span class="skill-text" [attr.itemprop]="'name'">{{ skill }}</span>
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

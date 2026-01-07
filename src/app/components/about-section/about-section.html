@@ -1,0 +1,98 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section id="about" class="about-section" role="region" [attr.aria-label]="languageService.getTranslation('about.title')" itemscope itemtype="https://schema.org/Person">
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('about.title') }}</h2>
+      <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        <ng-container *ngFor="let part of subtitleParts; trackBy: trackByIndex; let i = index">
+          <span class="subtitle-badge">{{ part }}</span>
+          <span class="subtitle-divider" *ngIf="i < subtitleParts.length - 1" aria-hidden="true"></span>
+        </ng-container>
+      </div>
+    </div>
+    
+    <!-- ============================================================================ -->
+    <!-- About Content -->
+    <!-- ============================================================================ -->
+    <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+      <div class="about-layout">
+        <!-- ============================================================================ -->
+        <!-- About Image Wrapper -->
+        <!-- ============================================================================ -->
+        <div class="about-image-wrapper" data-aos="fade-right" data-aos-delay="300">
+          <div class="image-container">
+            <div class="image-frame">
+              <img 
+                [src]="userImage" 
+                [alt]="languageService.getTranslation('about.title')"
+                itemprop="image"
+                class="pointing-image"
+                (error)="onImageError($event)"
+                loading="eager"
+                decoding="async">
+              <div class="image-glow" aria-hidden="true"></div>
+              <div class="image-accent" aria-hidden="true"></div>
+            </div>
+            <div class="pointing-arrow" aria-hidden="true">
+              <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="aboutArrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" [attr.style]="'stop-color:var(--primary-color);stop-opacity:0.6'" />
+                    <stop offset="100%" [attr.style]="'stop-color:var(--secondary-color);stop-opacity:1'" />
+                  </linearGradient>
+                </defs>
+                <path d="M 0 25 Q 30 15, 50 25 T 100 25" 
+                      fill="none" 
+                      stroke="url(#aboutArrowGradient)" 
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      class="arrow-path"/>
+                <polygon points="95,25 100,20 100,30" [attr.fill]="'var(--primary-color)'" class="arrow-head"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ============================================================================ -->
+        <!-- About Card Wrapper -->
+        <!-- ============================================================================ -->
+        <div class="about-card-wrapper" data-aos="fade-left" data-aos-delay="400">
+          <div class="about-card">
+            <div class="card-highlight" aria-hidden="true"></div>
+            <p class="about-description" itemprop="description">{{ languageService.getTranslation('about.description') }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ============================================================================ -->
+      <!-- Philosophy Section -->
+      <!-- ============================================================================ -->
+      <div class="philosophy-section" data-aos="fade-up" data-aos-delay="500">
+        <div class="philosophy-card">
+          <div class="philosophy-icon-sparkle" aria-hidden="true">✨</div>
+          <div class="philosophy-content-inline">
+            <span class="philosophy-label">💡</span>
+            <p class="philosophy-text-animated">{{ languageService.getTranslation('about.philosophy') }}</p>
+          </div>
+          <div class="philosophy-accent-line" aria-hidden="true"></div>
+          <div class="philosophy-particles" aria-hidden="true">
+            <span class="particle particle-1">●</span>
+            <span class="particle particle-2">●</span>
+            <span class="particle particle-3">●</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

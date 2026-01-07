@@ -1,0 +1,175 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Component Container -->
+<!-- ============================================================================ -->
+<section
+  id="education"
+  class="education-section"
+  role="region"
+  aria-labelledby="education-title"
+  itemscope
+  itemtype="https://schema.org/ItemList"
+  [attr.data-section]="'education'"
+  [attr.itemprop]="'mainEntity'">
+
+  <div class="education-section__container">
+    <!-- ============================================================================ -->
+    <!-- Header Section -->
+    <!-- ============================================================================ -->
+    <header class="education-section__header" data-aos="fade-up">
+      <div class="education-section__header-content">
+        <h2 id="education-title" class="education-section__title" itemprop="name">
+          {{ getTranslation('education.title') }}
+        </h2>
+      </div>
+    </header>
+
+    <!-- ============================================================================ -->
+    <!-- Education Grid -->
+    <!-- ============================================================================ -->
+    <div class="education-section__grid" role="list">
+      <article
+        class="education-section__item"
+        *ngFor="let edu of education; let i = index; trackBy: trackByEducation"
+        [attr.data-aos-delay]="i * 200"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        role="listitem"
+        [attr.aria-label]="getTranslatedDegree(edu.degree) + ' at ' + getTranslatedInstitution(edu.institution)">
+        <meta itemprop="position" [attr.content]="i + 1">
+
+        <!-- ============================================================================ -->
+        <!-- Education Card -->
+        <!-- ============================================================================ -->
+        <div
+          class="education-section__card"
+          [class.education-section__card--flipped]="edu.flipped"
+          (click)="toggleCardFlip(i)"
+          (keydown.enter)="toggleCardFlip(i)"
+          (keydown.space)="toggleCardFlip(i)"
+          role="button"
+          [attr.aria-expanded]="getAriaExpanded(i)"
+          [attr.aria-label]="getAriaLabel(i)"
+          tabindex="0"
+          itemscope
+          itemtype="https://schema.org/EducationalOccupationalCredential">
+
+          <!-- ============================================================================ -->
+          <!-- Card Front -->
+          <!-- ============================================================================ -->
+          <div class="education-section__card-front">
+            <div class="education-section__card-header">
+              <div class="education-section__icon" aria-hidden="true">
+                <img
+                  *ngIf="edu.institution.includes('Atlantis')"
+                  src="assets/icons/AU.png"
+                  [alt]="getTranslation('education.atlantisUniversity') + ' logo'"
+                  class="education-section__icon-logo"
+                  loading="lazy"
+                  decoding="async">
+                <img
+                  *ngIf="edu.institution.includes('Higher Institute')"
+                  src="assets/icons/ISTIC.png"
+                  [alt]="getTranslation('education.istic') + ' logo'"
+                  class="education-section__icon-logo"
+                  loading="lazy"
+                  decoding="async">
+                <app-icon
+                  *ngIf="!edu.institution.includes('Atlantis') && !edu.institution.includes('Higher Institute')"
+                  name="graduation-cap"
+                  [size]="40"
+                  class="education-section__icon-fallback"
+                  aria-hidden="true">
+                </app-icon>
+              </div>
+              <div class="education-section__degree-info">
+                <h3 class="education-section__degree-title" itemprop="name">{{ getTranslatedDegree(edu.degree) }}</h3>
+                <p class="education-section__institution" itemprop="recognizedBy" itemscope itemtype="https://schema.org/EducationalOrganization">
+                  <span itemprop="name">{{ getTranslatedInstitution(edu.institution) }}</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="education-section__card-content">
+              <div class="education-section__meta-info">
+                <div class="education-section__meta-item education-section__meta-item--location">
+                  <app-icon name="location" [size]="16" class="education-section__meta-icon" aria-hidden="true"></app-icon>
+                  <span class="education-section__meta-text" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <span itemprop="addressLocality">{{ getTranslatedLocation(edu.location) }}</span>
+                  </span>
+                </div>
+                <div class="education-section__meta-item education-section__meta-item--period">
+                  <app-icon name="time" [size]="16" class="education-section__meta-icon" aria-hidden="true"></app-icon>
+                  <span class="education-section__meta-text">
+                    <time [attr.datetime]="edu.startDate" itemprop="dateCreated">{{ edu.formattedStartDate }}</time> -
+                    <time *ngIf="!edu.isPresent" [attr.datetime]="edu.endDate" itemprop="dateModified">{{ edu.formattedEndDate }}</time>
+                    <span *ngIf="edu.isPresent">{{ getTranslation('experience.present') }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="education-section__description" *ngIf="edu.description">
+                <p class="education-section__description-text" itemprop="description">{{ getTranslatedDescription(edu.description) }}</p>
+              </div>
+
+              <div class="education-section__gpa" *ngIf="edu.gpa">
+                <div class="education-section__gpa-label">{{ getTranslation('education.gpa') }}</div>
+                <div class="education-section__gpa-value" itemprop="credentialCategory">{{ edu.gpa }}</div>
+              </div>
+
+              <div
+                class="education-section__flip-hint"
+                *ngIf="edu.relevantCourses && edu.relevantCourses.length > 0"
+                aria-hidden="true">
+                <app-icon name="book" [size]="16" class="education-section__flip-hint-icon"></app-icon>
+                <span class="education-section__flip-hint-text">{{ getTranslation('education.flipHint') }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================================ -->
+          <!-- Card Back -->
+          <!-- ============================================================================ -->
+          <div
+            class="education-section__card-back"
+            *ngIf="edu.relevantCourses && edu.relevantCourses.length > 0"
+            aria-hidden="true">
+            <div class="education-section__back-header">
+              <h3 class="education-section__back-title">{{ getTranslation('education.keyCourses') }}</h3>
+              <div class="education-section__back-icon">
+                <app-icon name="book" [size]="20" class="education-section__back-icon-svg"></app-icon>
+              </div>
+            </div>
+
+            <div class="education-section__courses-container">
+              <div class="education-section__courses-grid" role="list" itemprop="about" itemscope itemtype="https://schema.org/ItemList">
+                <span
+                  class="education-section__course-tag"
+                  *ngFor="let course of edu.relevantCourses; trackBy: trackByCourse"
+                  role="listitem"
+                  itemprop="itemListElement"
+                  itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <span itemprop="item" itemscope itemtype="https://schema.org/Thing">
+                    <span itemprop="name">{{ getTranslatedCourse(course) }}</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="education-section__flip-back-hint">
+              <app-icon name="arrow-left" [size]="16" class="education-section__flip-back-hint-icon"></app-icon>
+              <span class="education-section__flip-back-hint-text">{{ getTranslation('education.flipBackHint') }}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

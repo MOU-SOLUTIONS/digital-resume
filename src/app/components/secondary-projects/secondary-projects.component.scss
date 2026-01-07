@@ -1,0 +1,580 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Imports
+// ============================================================================
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/animations' as *;
+
+// ============================================================================
+// Main Container
+// ============================================================================
+.secondary-projects {
+  margin-top: $spacing-4xl;
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -$spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, $color-primary, $color-secondary);
+      @include rounded($radius-sm);
+    }
+  }
+
+  &__intro {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.3) 100%);
+    padding: $spacing-xl;
+    @include rounded($radius-lg);
+    border: 1px solid rgba($color-primary, 0.1);
+    box-shadow: 0 6px 20px rgba($color-accent, 0.08);
+    margin-bottom: $spacing-2xl;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, $color-primary, $color-secondary);
+      @include rounded($radius-sm);
+    }
+  }
+
+  &__intro-text {
+    font-size: $font-size-base;
+    color: var(--text-secondary);
+    line-height: $line-height-relaxed;
+    margin: 0;
+    text-align: center;
+  }
+
+  // ============================================================================
+  // Projects Grid
+  // ============================================================================
+  &__grid {
+    @include grid-auto-fit(400px, $spacing-xl);
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  // ============================================================================
+  // Card Styles
+  // ============================================================================
+  &__card {
+    background: var(--bg-card);
+    @include rounded($radius-xl);
+    box-shadow: 0 10px 30px rgba($color-accent, 0.1), 0 4px 10px rgba($color-primary, 0.05);
+    overflow: hidden;
+    @include smooth-transition(all, 0.4s, ease);
+    border: 1px solid var(--border-color);
+    position: relative;
+    @include flex-column;
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: $color-primary;
+      box-shadow: 0 20px 40px rgba($color-accent, 0.15), 0 10px 20px rgba($color-primary, 0.1);
+
+      .secondary-projects__card-image-overlay {
+        opacity: 1;
+      }
+
+      .secondary-projects__card-img {
+        transform: scale(1.1);
+      }
+
+      .secondary-projects__card-tech-item {
+        transform: translateY(-2px);
+      }
+    }
+
+    &-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: var(--bg-secondary);
+
+      @include respond-to(md) {
+        height: 180px;
+      }
+      @include respond-to(sm) {
+        height: 160px;
+      }
+      @include respond-to(xs) {
+        height: 140px;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include smooth-transition(transform, 0.4s, ease);
+    }
+
+    &-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba($color-accent, 0.8);
+      @include flex-center;
+      opacity: 0;
+      @include smooth-transition(opacity, 0.3s, ease);
+      z-index: 2;
+    }
+
+    &-type-badge {
+      background: $color-primary;
+      color: $color-white;
+      padding: $spacing-xs $spacing-md;
+      @include rounded($radius-sm);
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    &-content {
+      padding: $spacing-xl;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      @include flex-column;
+
+      @include respond-to(md) {
+        padding: $spacing-lg;
+      }
+      @include respond-to(sm) {
+        padding: $spacing-md;
+      }
+      @include respond-to(xs) {
+        padding: $spacing-sm;
+      }
+    }
+
+    &-header {
+      margin-bottom: $spacing-lg;
+      padding-bottom: $spacing-md;
+      border-bottom: 1px solid var(--border-color);
+
+      @include respond-to(md) {
+        @include flex-column;
+        align-items: center;
+        gap: $spacing-lg;
+        text-align: center;
+      }
+    }
+
+    &-title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-semibold;
+      color: var(--text-secondary);
+      margin: 0;
+
+      @include respond-to(md) {
+        font-size: $font-size-xl;
+      }
+      @include respond-to(sm) {
+        font-size: $font-size-lg;
+      }
+      @include respond-to(xs) {
+        font-size: $font-size-base;
+      }
+    }
+
+    &-body {
+      flex: 1;
+      margin-bottom: $spacing-lg;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+    }
+
+    &-description {
+      font-size: $font-size-base;
+      color: var(--text-secondary);
+      line-height: $line-height-relaxed;
+      margin-bottom: $spacing-lg;
+      flex-shrink: 0;
+    }
+
+    // ============================================================================
+    // Technology Section
+    // ============================================================================
+    &-tech {
+      margin-bottom: $spacing-lg;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+
+      &-title {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        color: $color-accent;
+        margin: 0 0 $spacing-sm 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
+      }
+
+      &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: $spacing-sm;
+        flex: 1;
+        align-content: start;
+
+        @include respond-to(md) {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+        @include respond-to(sm) {
+          grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        }
+        @include respond-to(xs) {
+          grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        }
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        padding: $spacing-xs $spacing-sm;
+        background: var(--bg-secondary);
+        @include rounded($radius-sm);
+        border: 1px solid var(--border-color);
+        @include smooth-transition(all, 0.3s, ease);
+        height: 32px;
+
+        &:hover {
+          background: $color-primary;
+          color: $color-white;
+          border-color: $color-primary;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba($color-primary, 0.3);
+        }
+
+        @include respond-to(xs) {
+          flex-direction: column;
+          text-align: center;
+          gap: $spacing-xs;
+          height: 28px;
+        }
+      }
+
+      &-icon {
+        font-size: $font-size-sm;
+        flex-shrink: 0;
+      }
+
+      &-name {
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        @include truncate-text;
+      }
+
+      @include respond-to(md) {
+        min-height: 100px;
+      }
+      @include respond-to(sm) {
+        min-height: 80px;
+      }
+      @include respond-to(xs) {
+        min-height: 70px;
+      }
+    }
+
+    // ============================================================================
+    // Footer Section
+    // ============================================================================
+    &-footer {
+      padding-top: 0;
+      border-top: 1px solid var(--border-color);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-security-note {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm $spacing-md;
+      background: linear-gradient(135deg, rgba($color-warning, 0.06), rgba($color-warning, 0.02));
+      border: 1px solid rgba($color-warning, 0.12);
+      @include rounded($radius-sm);
+
+      @include respond-to(md) {
+        flex-direction: column;
+        text-align: center;
+        gap: $spacing-sm;
+      }
+    }
+
+    &-security-icon {
+      color: $color-warning;
+      flex-shrink: 0;
+    }
+
+    &-security-content {
+      flex: 1;
+    }
+
+    &-security-text {
+      font-size: $font-size-xs;
+      color: $color-warning;
+      line-height: 1.1;
+      margin: 0;
+      font-weight: $font-weight-medium;
+    }
+
+    &-links {
+      display: flex;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+
+      @include respond-to(md) {
+        flex-direction: column;
+        padding: $spacing-md 0;
+        width: 100%;
+        gap: $spacing-md;
+      }
+      @include respond-to(sm) {
+        padding: $spacing-md 0;
+        gap: $spacing-sm;
+      }
+    }
+
+    &-link {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-xs;
+      padding: $spacing-sm $spacing-md;
+      @include rounded($radius-sm);
+      text-decoration: none;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      @include smooth-transition(all, 0.3s, ease);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      height: 36px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        @include smooth-transition(left, 0.6s, ease);
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &--github {
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+
+        &:hover {
+          background: var(--bg-tertiary);
+          border-color: var(--border-color);
+          color: $color-accent;
+          transform: translateY(-1px);
+          box-shadow: 0 5px 12px rgba($color-accent, 0.25);
+        }
+      }
+
+      &--live {
+        color: $color-white;
+        background: $color-primary;
+        border-color: $color-primary;
+
+        &:hover {
+          background: $color-primary-dark;
+          border-color: $color-primary-dark;
+          transform: translateY(-1px);
+          box-shadow: 0 5px 12px rgba($color-primary, 0.35);
+        }
+      }
+
+      app-icon {
+        flex-shrink: 0;
+      }
+
+      &:hover app-icon {
+        transform: scale(1.15) rotate(15deg);
+      }
+
+      @include respond-to(md) {
+        width: 100%;
+        justify-content: center;
+        padding: $spacing-md $spacing-lg;
+      }
+      @include respond-to(sm) {
+        padding: $spacing-sm $spacing-md;
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .secondary-projects {
+    &__title {
+      color: var(--text-primary);
+
+      &::after {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      }
+    }
+
+    &__intro {
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border-color: var(--border-color);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    &__intro-text {
+      color: var(--text-secondary);
+    }
+
+    &__card {
+      background: var(--bg-card);
+      border-color: var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(99, 102, 241, 0.25);
+        border-color: var(--primary-color);
+      }
+    }
+
+    &__card-image {
+      background: var(--bg-secondary);
+    }
+
+    &__card-image-overlay {
+      background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.7) 100%);
+    }
+
+    &__card-type-badge {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--primary-color);
+      color: var(--text-primary);
+      backdrop-filter: blur(10px);
+    }
+
+    &__card-header {
+      border-bottom-color: var(--border-color);
+    }
+
+    &__card-title {
+      color: var(--text-primary);
+    }
+
+    &__card-description {
+      color: var(--text-secondary);
+    }
+
+    &__card-tech-title {
+      color: var(--text-primary);
+    }
+
+    &__card-tech-item {
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+      color: var(--text-secondary);
+
+      &:hover {
+        background: rgba(99, 102, 241, 0.2);
+        color: var(--text-primary);
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+      }
+    }
+
+    &__card-footer {
+      border-top-color: var(--border-color);
+    }
+
+    &__card-link {
+      &--github {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: var(--text-secondary);
+
+        &:hover {
+          background: var(--bg-tertiary);
+          border-color: var(--border-color);
+          color: var(--accent-color);
+          box-shadow: 0 5px 12px rgba(255, 107, 107, 0.2);
+        }
+      }
+
+      &--live {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+
+        &:hover {
+          background: var(--primary-color-dark);
+          border-color: var(--primary-color-dark);
+          box-shadow: 0 5px 12px rgba(99, 102, 241, 0.35);
+        }
+      }
+    }
+
+    &__card-security-note {
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+    }
+
+    &__card-security-icon,
+    &__card-security-text {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+// ============================================================================
+// RTL Support
+// ============================================================================
+[dir="rtl"] {
+  .secondary-projects {
+    &__card-tech-item {
+      flex-direction: row-reverse;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section 
+  id="languages"
+  class="language-section"
+  role="region"
+  aria-labelledby="languages-title"
+  itemscope
+  itemtype="https://schema.org/ItemList"
+  [attr.data-section]="'languages'"
+  [attr.itemprop]="'mainEntity'">
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 id="languages-title" class="section-title" itemprop="name">{{ languageService.getTranslation('languages.title') }}</h2>
+      <p class="section-subtitle" itemprop="description">{{ languageService.getTranslation('languages.subtitle') }}</p>
+    </header>
+
+    <!-- ============================================================================ -->
+    <!-- Languages Container -->
+    <!-- ============================================================================ -->
+    <div class="languages-container" role="list">
+      <article 
+        class="language-card"
+        *ngFor="let language of languages; trackBy: trackByLanguage; let i = index"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        role="listitem"
+        [attr.aria-label]="getLanguageAriaLabel(language)"
+        [style.animation-delay]="(i * 0.15) + 's'">
+        <meta itemprop="position" [attr.content]="i + 1">
+
+        <!-- ============================================================================ -->
+        <!-- Language Icon -->
+        <!-- ============================================================================ -->
+        <div class="language-icon-wrapper">
+          <div class="language-icon" aria-hidden="true">
+            <ng-container *ngIf="language.flag; else emojiFallback">
+              <img 
+                [src]="language.flag" 
+                [alt]="getFlagAlt(language)"
+                class="language-flag"
+                loading="lazy"
+                decoding="async"
+                itemprop="image"
+                (error)="onFlagError($event, language)">
+            </ng-container>
+            <ng-template #emojiFallback>
+              <span class="language-emoji">{{ language.icon }}</span>
+            </ng-template>
+          </div>
+        </div>
+
+        <!-- ============================================================================ -->
+        <!-- Language Content -->
+        <!-- ============================================================================ -->
+        <div class="language-content">
+          <h3 class="language-name" itemprop="name">{{ getLanguageName(language) }}</h3>
+          <p class="language-proficiency" itemprop="proficiencyLevel">{{ languageService.getTranslation('languages.proficiency.' + language.proficiency) }}</p>
+          
+          <div class="language-progress">
+            <div class="language-progress-bar">
+              <div class="language-progress-fill" [style.width.%]="language.level"></div>
+            </div>
+            <span class="language-level">{{ language.level }}%</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

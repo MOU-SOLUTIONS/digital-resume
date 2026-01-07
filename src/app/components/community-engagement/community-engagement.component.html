@@ -1,0 +1,145 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section id="community-engagement"
+         class="community-engagement-section"
+         role="region"
+         [attr.aria-label]="languageService.getTranslation('community.title')"
+         itemscope
+         itemtype="https://schema.org/ItemList"
+         [attr.data-section]="'community-engagement'"
+         [attr.itemprop]="'mainEntity'">
+
+  <!-- ============================================================================ -->
+  <!-- Main Content Container -->
+  <!-- ============================================================================ -->
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('community.title') }}</h2>
+      <p class="section-subtitle" itemprop="description">{{ languageService.getTranslation('community.subtitle') }}</p>
+    </header>
+
+    <!-- ============================================================================ -->
+    <!-- Engagements Grid -->
+    <!-- ============================================================================ -->
+    <div class="engagements-container" role="list">
+      <article class="engagement-article"
+               *ngFor="let engagement of engagements; trackBy: trackByEngagement; let i = index"
+               itemprop="itemListElement"
+               itemscope
+               itemtype="https://schema.org/ListItem"
+               role="listitem"
+               [attr.aria-label]="getAriaLabel(engagement)"
+               [style.animation-delay]="(i * 0.15) + 's'">
+        <meta itemprop="position" [attr.content]="i + 1">
+
+        <!-- ============================================================================ -->
+        <!-- Engagement Card (Flip Container) -->
+        <!-- ============================================================================ -->
+        <div class="engagement-card"
+             [class.engagement-card--flipped]="engagement.flipped"
+             (click)="toggleCardFlip(i)"
+             (keydown.enter)="toggleCardFlip(i)"
+             (keydown.space)="toggleCardFlip(i)"
+             role="button"
+             [attr.aria-expanded]="getAriaExpanded(i)"
+             [attr.aria-label]="getCardAriaLabel(i)"
+             tabindex="0">
+
+          <!-- ============================================================================ -->
+          <!-- Card Front -->
+          <!-- ============================================================================ -->
+          <div class="engagement-card-front">
+            <!-- ============================================================================ -->
+            <!-- Engagement Icon -->
+            <!-- ============================================================================ -->
+            <div class="engagement-icon-wrapper">
+              <div class="engagement-icon" aria-hidden="true">
+                <img 
+                  [src]="engagement.logo" 
+                  [alt]="languageService.getTranslation('community.organization.' + engagement.organizationKey) || engagement.organization + ' logo'"
+                  class="engagement-icon-logo"
+                  loading="lazy"
+                  decoding="async"
+                  (error)="onImageError($event)">
+              </div>
+            </div>
+
+            <!-- ============================================================================ -->
+            <!-- Engagement Content -->
+            <!-- ============================================================================ -->
+            <div class="engagement-content">
+              <h3 class="engagement-organization" itemprop="name">{{ languageService.getTranslation('community.organization.' + engagement.organizationKey) || engagement.organization }}</h3>
+              <p class="engagement-location">{{ engagement.location }}</p>
+              
+              <!-- ============================================================================ -->
+              <!-- Roles -->
+              <!-- ============================================================================ -->
+              <div class="engagement-roles">
+                <div class="engagement-role-item"
+                     *ngFor="let role of engagement.roles; trackBy: trackByRole">
+                  <span class="role-name">{{ languageService.getTranslation('community.role.' + role.role) }}</span>
+                  <span class="role-period">
+                    (<time [attr.datetime]="role.startDate">{{ getFormattedDate(role.startDate) }}</time> -
+                    <time *ngIf="!role.isPresent" [attr.datetime]="role.endDate">{{ getFormattedDate(role.endDate) }}</time>
+                    <span *ngIf="role.isPresent">{{ languageService.getTranslation('experience.present') }}</span>)
+                  </span>
+                </div>
+              </div>
+
+              <!-- ============================================================================ -->
+              <!-- Highlights -->
+              <!-- ============================================================================ -->
+              <ul class="engagement-highlights" *ngIf="engagement.highlights && engagement.highlights.length > 0" role="list">
+                <li *ngFor="let highlight of engagement.highlights; trackBy: trackByHighlight" class="engagement-highlight-item" role="listitem">
+                  <span class="highlight-marker" aria-hidden="true"></span>
+                  <span class="highlight-text">{{ languageService.getTranslation(highlight) }}</span>
+                </li>
+              </ul>
+
+              <!-- ============================================================================ -->
+              <!-- Flip Hint -->
+              <!-- ============================================================================ -->
+              <div class="engagement-flip-hint" aria-hidden="true">
+                <span class="engagement-flip-hint-text">{{ languageService.getTranslation('community.flipHint') }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================================ -->
+          <!-- Card Back -->
+          <!-- ============================================================================ -->
+          <div class="engagement-card-back" aria-hidden="true">
+            <div class="engagement-back-header">
+              <h3 class="engagement-back-title">{{ languageService.getTranslation('community.description') }}</h3>
+            </div>
+
+            <!-- ============================================================================ -->
+            <!-- Description -->
+            <!-- ============================================================================ -->
+            <div class="engagement-back-content">
+              <p class="engagement-description" itemprop="description">{{ languageService.getTranslation(engagement.description) }}</p>
+            </div>
+
+            <!-- ============================================================================ -->
+            <!-- Flip Back Hint -->
+            <!-- ============================================================================ -->
+            <div class="engagement-flip-back-hint">
+              <span class="engagement-flip-back-hint-text">{{ languageService.getTranslation('community.flipBackHint') }}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+

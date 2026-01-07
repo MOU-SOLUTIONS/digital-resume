@@ -1,0 +1,56 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section 
+  id="contact"
+  class="contact-section"
+  role="region"
+  aria-labelledby="contact-title"
+  itemscope
+  itemtype="https://schema.org/ContactPage"
+  [attr.data-section]="'contact'">
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 id="contact-title" class="section-title" itemprop="name">{{ languageService.getTranslation('contact.title') }}</h2>
+    </header>
+    <!-- ============================================================================ -->
+    <!-- Contact Content -->
+    <!-- ============================================================================ -->
+    <div class="contact-content" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
+      <p itemprop="description">{{ languageService.getTranslation('contact.description') }}</p>
+      <!-- ============================================================================ -->
+      <!-- Contact Info -->
+      <!-- ============================================================================ -->
+      <div class="contact-info" role="list">
+        <div class="contact-item" role="listitem" itemscope itemtype="https://schema.org/ContactPoint">
+          <span class="contact-label">{{ languageService.getTranslation('contact.email') }}:</span>
+          <a 
+            [href]="'mailto:' + contactInfo.email" 
+            itemprop="email"
+            [attr.aria-label]="getEmailAriaLabel()"
+            rel="noopener noreferrer">{{ contactInfo.email }}</a>
+        </div>
+        <div class="contact-item" role="listitem" itemscope itemtype="https://schema.org/ContactPoint">
+          <span class="contact-label">{{ languageService.getTranslation('contact.phone') }}:</span>
+          <a 
+            [href]="'tel:' + contactInfo.phone" 
+            itemprop="telephone"
+            [attr.aria-label]="getPhoneAriaLabel()">{{ contactInfo.phone }}</a>
+        </div>
+        <div class="contact-item" role="listitem" itemscope itemtype="https://schema.org/PostalAddress">
+          <span class="contact-label">{{ languageService.getTranslation('contact.location') }}:</span>
+          <span itemprop="addressLocality">{{ contactInfo.location }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

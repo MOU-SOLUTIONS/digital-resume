@@ -1,0 +1,317 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Main Section Container
+// ============================================================================
+.certification-section {
+  background: var(--bg-primary);
+  padding: var(--spacing-3xl) 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+// ============================================================================
+// Container
+// ============================================================================
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+// ============================================================================
+// Section Header
+// ============================================================================
+.section-header {
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    animation: underlineExpand 1s ease-out;
+  }
+}
+
+// ============================================================================
+// Certification Categories
+// ============================================================================
+.certification-categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.certification-category {
+  &:not(:last-child) {
+    padding-bottom: var(--spacing-2xl);
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.category-title {
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+  letter-spacing: -0.3px;
+}
+
+// ============================================================================
+// Certification List
+// ============================================================================
+.certification-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.certification-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-height: 120px;
+}
+
+// ============================================================================
+// Certification Logo
+// ============================================================================
+.certification-logo {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  padding: var(--spacing-md);
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-right: none;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+// ============================================================================
+// Certification Item
+// ============================================================================
+.certification-item {
+  flex: 1;
+  padding: var(--spacing-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  display: flex;
+  align-items: stretch;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    
+    .certification-name {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// ============================================================================
+// Certification Content
+// ============================================================================
+.certification-content {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+.certification-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+.certification-name {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.certification-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.certification-issuer {
+  font-weight: 500;
+}
+
+.certification-separator {
+  opacity: 0.5;
+}
+
+.certification-date {
+  font-weight: 500;
+}
+
+.certification-description {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: var(--spacing-xs);
+  font-style: italic;
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .certification-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .section-title {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    &::after {
+      background: var(--gradient-primary);
+    }
+  }
+  
+  .category-title {
+    color: var(--text-primary);
+  }
+  
+  .certification-name {
+    color: var(--text-primary);
+    
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// ============================================================================
+// Media Queries - Tablet
+// ============================================================================
+@media (max-width: 768px) {
+  .certification-section {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .section-title {
+    font-size: var(--font-size-2xl, 1.5rem);
+  }
+  
+  .category-title {
+    font-size: var(--font-size-lg, 1.125rem);
+  }
+  
+  .certification-categories {
+    gap: var(--spacing-xl);
+  }
+  
+  .certification-category {
+    &:not(:last-child) {
+      padding-bottom: var(--spacing-xl);
+    }
+  }
+  
+  .certification-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .certification-logo {
+    width: 80px;
+  }
+  
+  .certification-item {
+    min-height: 100px;
+  }
+  
+  .certification-wrapper {
+    flex-direction: row;
+    
+    .certification-logo {
+      border-radius: var(--radius-md) 0 0 var(--radius-md);
+      border-right: none;
+      width: 80px;
+      height: 100%;
+    }
+    
+    .certification-item {
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+@keyframes underlineExpand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 80px;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,120 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================
+     Component Container
+     ============================================================================ -->
+<div class="master-project">
+  <!-- ============================================================================
+       Title Section
+       ============================================================================ -->
+  <h3 class="master-project__title">{{ getTranslation('projects.masterProject') }}</h3>
+  
+  <!-- ============================================================================
+       Intro Section
+       ============================================================================ -->
+  <div class="master-project__intro">
+    <p class="master-project__intro-text">
+      {{ getTranslation('projects.introMaster') }}
+    </p>
+  </div>
+
+  <!-- ============================================================================
+       Project Card
+       ============================================================================ -->
+  <div class="master-project__card">
+    <article 
+      class="master-project__item"
+      [attr.aria-label]="getTranslation('projects.masterProjectLabel') + ': ' + getTranslatedTitle(project)"
+    >
+      <!-- ============================================================================
+           Image Section
+           ============================================================================ -->
+      <div class="master-project__image">
+        <img 
+          [src]="project.image" 
+          [alt]="getTranslatedTitle(project) + ' ' + getTranslation('projects.screenshot')"
+          class="master-project__img"
+          (error)="onImageError($event)"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="master-project__image-overlay">
+          <div class="master-project__badge">
+            <span class="master-project__badge-icon" aria-hidden="true">👑</span>
+            <span class="master-project__badge-text">{{ getTranslation('projects.masterProject') }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ============================================================================
+           Content Section
+           ============================================================================ -->
+      <div class="master-project__content">
+        <!-- ============================================================================
+             Header
+             ============================================================================ -->
+        <header class="master-project__header">
+          <h4 class="master-project__project-title">{{ getTranslatedTitle(project) }}</h4>
+          <p class="master-project__subtitle">{{ getTranslation('projects.masterSubtitle') }}</p>
+        </header>
+        
+        <!-- ============================================================================
+             Body
+             ============================================================================ -->
+        <div class="master-project__body">
+          <p class="master-project__description">{{ getTranslatedDescription(project) }}</p>
+          
+          <!-- ============================================================================
+               Technologies Section
+               ============================================================================ -->
+          <section class="master-project__tech">
+            <h5 class="master-project__tech-title">{{ getTranslation('projects.technologies') }}</h5>
+            <div class="master-project__tech-grid">
+              <div 
+                *ngFor="let tech of project.technologies; trackBy: trackByTech" 
+                class="master-project__tech-item"
+              >
+                <span class="master-project__tech-icon" aria-hidden="true">⚡</span>
+                <span class="master-project__tech-name">{{ getTranslatedTechnology(tech) }}</span>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <!-- ============================================================================
+             Footer / Links
+             ============================================================================ -->
+        <footer class="master-project__footer">
+          <nav class="master-project__links">
+            <a 
+              *ngIf="project.githubUrl" 
+              [href]="project.githubUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="master-project__link master-project__link--github"
+              [attr.aria-label]="getTranslation('projects.githubLink') + ': ' + getTranslatedTitle(project)"
+            >
+              <app-icon name="book" [size]="18"></app-icon>
+              {{ getTranslation('projects.viewCode') }}
+            </a>
+            <a 
+              *ngIf="project.liveUrl" 
+              [href]="project.liveUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="master-project__link master-project__link--live"
+              [attr.aria-label]="getTranslation('projects.liveLink') + ': ' + getTranslatedTitle(project)"
+            >
+              <app-icon name="chevron-right" [size]="18"></app-icon>
+              {{ getTranslation('projects.viewLive') }}
+            </a>
+          </nav>
+        </footer>
+      </div>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,157 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Section Container -->
+<!-- ============================================================================ -->
+<section id="experience" 
+         class="experience-section" 
+         role="region" 
+         [attr.aria-label]="languageService.getTranslation('experience.title')" 
+         itemscope 
+         itemtype="https://schema.org/ItemList"
+         [attr.data-section]="'experience'">
+  <!-- ============================================================================ -->
+  <!-- Main Content Container -->
+  <!-- ============================================================================ -->
+  <div class="container">
+    <!-- ============================================================================ -->
+    <!-- Section Header -->
+    <!-- ============================================================================ -->
+    <header class="section-header">
+      <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('experience.title') }}</h2>
+    </header>
+    <!-- ============================================================================ -->
+    <!-- Experience Grid - Timeline and Cards -->
+    <!-- ============================================================================ -->
+    <div class="experience-grid" role="list">
+      <!-- ============================================================================ -->
+      <!-- Central Timeline - Creative Design -->
+      <!-- ============================================================================ -->
+      <div class="central-timeline" aria-hidden="true">
+        <div class="timeline-core"></div>
+        <div class="timeline-energy"></div>
+        <div class="timeline-particle particle-1"></div>
+        <div class="timeline-particle particle-2"></div>
+        <div class="timeline-particle particle-3"></div>
+        <div class="timeline-connection connection-1"></div>
+        <div class="timeline-connection connection-2"></div>
+        <div class="timeline-connection connection-3"></div>
+        <div class="timeline-connection connection-4"></div>
+        <div class="timeline-marker" 
+             *ngFor="let exp of experience; let i = index; trackBy: trackByIndex"
+             [class]="'timeline-marker-' + (i + 1)"
+             [attr.aria-label]="languageService.getTranslation('experience.title') + ' ' + languageService.getTranslation('experience.marker') + ' ' + (i + 1)"></div>
+      </div>
+      <!-- ============================================================================ -->
+      <!-- Experience Item Wrapper - Contains Logo and Card -->
+      <!-- ============================================================================ -->
+      <div class="experience-item-wrapper" 
+           *ngFor="let exp of experience; trackBy: trackByIndex; let i = index">
+        <!-- ============================================================================ -->
+        <!-- Company Logo - Opposite Side of Card -->
+        <!-- ============================================================================ -->
+        <div class="company-logo-wrapper" 
+             *ngIf="exp.logo"
+             [class.logo-left]="i % 2 === 1"
+             [class.logo-right]="i % 2 === 0">
+          <div class="company-logo" 
+               [attr.aria-label]="getTranslatedCompany(exp.company) + ' ' + languageService.getTranslation('experience.logo')">
+            <img [src]="exp.logo" 
+                 [alt]="getTranslatedCompany(exp.company) + ' ' + languageService.getTranslation('experience.logo')"
+                 (error)="onLogoError($event)"
+                 loading="lazy"
+                 width="240"
+                 height="240">
+          </div>
+          <a *ngIf="hasCompanyWebsite(exp.company)" 
+             [href]="getCompanyWebsite(exp.company)" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="company-website-link"
+             [attr.aria-label]="getVisitWebsiteText() + ' ' + getTranslatedCompany(exp.company)">
+            {{ getVisitWebsiteText() }}
+          </a>
+        </div>
+        <!-- ============================================================================ -->
+        <!-- Experience Card - Individual Experience Entry -->
+        <!-- ============================================================================ -->
+        <article class="experience-card" 
+             [class.expanded]="isExpanded(i)"
+             itemprop="itemListElement"
+             itemscope
+             itemtype="https://schema.org/ListItem"
+             role="listitem">
+          <meta itemprop="position" [attr.content]="i + 1">
+          <!-- ============================================================================ -->
+          <!-- Compact View - Collapsed Card -->
+          <!-- ============================================================================ -->
+          <div class="experience-compact" 
+               (click)="toggleCard(i)" 
+               [attr.aria-expanded]="isExpanded(i)" 
+               role="button" 
+               [attr.aria-label]="languageService.getTranslation('experience.clickForDetails')"
+               [attr.aria-controls]="'experience-details-' + i"
+               tabindex="0"
+               (keydown.enter)="toggleCard(i)"
+               (keydown.space)="toggleCard(i); $event.preventDefault()">
+            <div class="compact-header">
+              <h3 class="position" itemprop="name">{{ getTranslatedPosition(exp.position) }}</h3>
+              <div class="company" itemprop="item" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name">{{ getTranslatedCompany(exp.company) }}</span>
+              </div>
+              <div class="compact-meta">
+                <div class="period">
+                  <time [attr.datetime]="exp.startDate" itemprop="startDate">{{ formatDate(exp.startDate) }}</time><span *ngIf="!exp.isPresent">{{ getDateSeparator() }}</span>
+                  <time *ngIf="!exp.isPresent" [attr.datetime]="exp.endDate" itemprop="endDate">{{ formatDate(exp.endDate) }}</time>
+                  <span *ngIf="exp.isPresent">{{ getDateSeparator() }}{{ languageService.getTranslation('experience.present') }}</span>
+                </div>
+                <div class="location" itemprop="jobLocation" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="name">{{ getTranslatedLocation(exp.location) }}</span>
+                </div>
+              </div>
+              <div class="compact-preview">
+                {{ exp.description && exp.description.length > 0 ? getTranslatedDescription(exp.description[0], exp.company) : '' }}
+              </div>
+              <div class="expand-hint">
+                <span>{{ languageService.getTranslation('experience.clickForDetails') }}</span>
+                <span class="expand-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================================ -->
+          <!-- Expanded View - Full Card Details -->
+          <!-- ============================================================================ -->
+          <div class="experience-expanded" 
+               *ngIf="isExpanded(i)"
+               [attr.id]="'experience-details-' + i"
+               role="region"
+               [attr.aria-labelledby]="'experience-position-' + i">
+            <div class="experience-header">
+              <h3 class="position" itemprop="name" [attr.id]="'experience-position-' + i">{{ getTranslatedPosition(exp.position) }}</h3>
+              <div class="company" itemprop="item" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name">{{ getTranslatedCompany(exp.company) }}</span>
+              </div>
+              <div class="period">
+                <time [attr.datetime]="exp.startDate" itemprop="startDate">{{ formatDate(exp.startDate) }}</time><span *ngIf="!exp.isPresent">{{ getDateSeparator() }}</span>
+                <time *ngIf="!exp.isPresent" [attr.datetime]="exp.endDate" itemprop="endDate">{{ formatDate(exp.endDate) }}</time>
+                <span *ngIf="exp.isPresent">{{ getDateSeparator() }}{{ languageService.getTranslation('experience.present') }}</span>
+              </div>
+            </div>
+            <div class="experience-content">
+              <ul class="description" itemprop="description">
+                <li *ngFor="let desc of exp.description; trackBy: trackByIndex">{{ getTranslatedDescription(desc, exp.company) }}</li>
+              </ul>
+              <div class="technologies" role="list">
+                <span class="tech-tag" *ngFor="let tech of exp.technologies; trackBy: trackByIndex" role="listitem" itemprop="skills">{{ getTranslatedTechnology(tech) }}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

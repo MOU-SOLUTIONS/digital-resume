@@ -1,0 +1,73 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- App Container -->
+<!-- ============================================================================ -->
+<div class="app-container" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+  <!-- ============================================================================ -->
+  <!-- Navigation -->
+  <!-- ============================================================================ -->
+  <app-navbar></app-navbar>
+
+  <!-- ============================================================================ -->
+  <!-- Main Content -->
+  <!-- ============================================================================ -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- ============================================================================ -->
+  <!-- Footer -->
+  <!-- ============================================================================ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <!-- ============================================================================ -->
+        <!-- Footer Section - About -->
+        <!-- ============================================================================ -->
+        <div class="footer-section">
+          <h3>{{ getTranslation('home.name') }}</h3>
+          <p>{{ getTranslation('home.description') }}</p>
+          <p>Passionate about creating innovative solutions and pushing the boundaries of technology.</p>
+        </div>
+        
+        <!-- ============================================================================ -->
+        <!-- Footer Section - Quick Links -->
+        <!-- ============================================================================ -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#about" (click)="scrollToSection('about'); $event.preventDefault()">{{ getTranslation('nav.about') }}</a>
+          <a href="#experience" (click)="scrollToSection('experience'); $event.preventDefault()">{{ getTranslation('nav.experience') }}</a>
+          <a href="#projects" (click)="scrollToSection('projects'); $event.preventDefault()">{{ getTranslation('nav.projects') }}</a>
+          <a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault()">{{ getTranslation('nav.contact') }}</a>
+        </div>
+        
+        <!-- ============================================================================ -->
+        <!-- Footer Section - Connect -->
+        <!-- ============================================================================ -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/mohamed-dhaoui-ba94031b7" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/MOU-SOLUTIONS" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ============================================================================ -->
+      <!-- Footer Bottom -->
+      <!-- ============================================================================ -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 {{ getTranslation('home.name') }}. All rights reserved. Built with ❤️ and Angular.</p>
+      </div>
+    </div>
+  </footer>
+</div> 

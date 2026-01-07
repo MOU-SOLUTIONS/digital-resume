@@ -1,0 +1,70 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- Hero Section Container -->
+<section id="home" class="hero-section" role="banner" itemscope itemtype="https://schema.org/Person">
+  <!-- Floating Particles -->
+  <div class="particle particle-1" aria-hidden="true"></div>
+  <div class="particle particle-2" aria-hidden="true"></div>
+  <div class="particle particle-3" aria-hidden="true"></div>
+  <div class="particle particle-4" aria-hidden="true"></div>
+  
+  <!-- Hero Container -->
+  <div class="hero-container">
+    <!-- Hero Content Grid -->
+    <div class="hero-content">
+      <!-- Hero Text Content -->
+      <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="hero-greeting" itemprop="name">
+          {{ languageService.getTranslation('home.greeting') }}
+          <span class="hero-name">{{ languageService.getTranslation('home.name') }}</span>
+        </h1>
+        <h2 class="hero-title" itemprop="jobTitle">{{ languageService.getTranslation('home.title') }}</h2>
+        <p class="hero-description" itemprop="description">{{ languageService.getTranslation('home.description') }}</p>
+        
+        <!-- Action Buttons -->
+        <div class="hero-buttons">
+          <button 
+            type="button"
+            class="btn btn-primary" 
+            (click)="scrollToSection('contact')"
+            [attr.aria-label]="languageService.getTranslation('home.cta')">
+            {{ languageService.getTranslation('home.cta') }}
+          </button>
+          <button 
+            type="button"
+            class="btn btn-secondary" 
+            (click)="downloadResume()"
+            [attr.aria-label]="languageService.getTranslation('home.downloadCV')">
+            {{ languageService.getTranslation('home.downloadCV') }}
+          </button>
+        </div>
+      </div>
+      
+      <!-- Hero Image / Avatar -->
+      <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+        <div class="avatar-container">
+          <div class="avatar-placeholder">
+            <img 
+              [src]="personalInfo.avatar" 
+              [alt]="languageService.getTranslation('home.name')" 
+              class="avatar-image" 
+              (error)="onImageError($event)"
+              loading="lazy"
+              decoding="async"
+              itemprop="image">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" aria-hidden="true">
+      <div class="scroll-arrow" aria-hidden="true">↓</div>
+      <span class="scroll-text">{{ languageService.getTranslation('home.scrollToExplore') }}</span>
+    </div>
+  </div>
+</section>

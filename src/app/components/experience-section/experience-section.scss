@@ -1,0 +1,846 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Main Section Container
+// ============================================================================
+.experience-section {
+  background: var(--bg-secondary);
+  padding: var(--spacing-4xl) 0;
+  position: relative;
+  overflow: hidden;
+
+  // ============================================================================
+  // Background Gradients - Static Background Layer
+  // ============================================================================
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  // ============================================================================
+  // Timeline Line - Vertical Center Line (Hidden on desktop)
+  // ============================================================================
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 14.5%;
+    bottom: var(--spacing-4xl);
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color), var(--accent-color));
+    transform: translateX(-50%);
+    z-index: 0;
+    animation: timelineFlow 4s ease-in-out infinite;
+    
+    @media (min-width: 969px) {
+      display: none !important;
+    }
+  }
+
+  // ============================================================================
+  // Container - Main Content Wrapper
+  // ============================================================================
+  .container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  // ============================================================================
+  // Section Header - Title Section
+  // ============================================================================
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    
+    .section-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+    }
+  }
+
+  // ============================================================================
+  // Experience Grid - Timeline and Cards Layout
+  // ============================================================================
+  .experience-grid {
+    display: grid;
+    gap: var(--spacing-3xl);
+    position: relative;
+    z-index: 1;
+    
+    // ============================================================================
+    // Central Timeline - Creative Animated Design (Default: Center for mobile/tablet)
+    // ============================================================================
+    .central-timeline {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 6px;
+      z-index: 0;
+      pointer-events: none;
+      margin: 0;
+      padding: 0;
+      
+      @media (min-width: 969px) {
+        left: 5% !important;
+        transform: none !important;
+      }
+      
+      // ============================================================================
+      // Timeline Core - Main Timeline Line
+      // ============================================================================
+      .timeline-core {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 6px;
+        
+        @media (min-width: 969px) {
+          left: 0 !important;
+          transform: none !important;
+        }
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          var(--primary-color) 5%,
+          var(--secondary-color) 25%,
+          var(--primary-color) 50%,
+          var(--secondary-color) 75%,
+          var(--primary-color) 95%,
+          transparent 100%
+        );
+        border-radius: 3px;
+        opacity: 0.7;
+        animation: timelineCorePulse 4s ease-in-out infinite;
+        box-shadow: 
+          0 0 10px rgba(99, 102, 241, 0.5),
+          0 0 20px rgba(99, 102, 241, 0.3),
+          inset 0 0 10px rgba(99, 102, 241, 0.2);
+      }
+      
+      // ============================================================================
+      // Timeline Energy - Animated Energy Flow
+      // ============================================================================
+      .timeline-energy {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 8px;
+        height: 100px;
+        transform: translateX(-50%);
+        background: linear-gradient(
+          to bottom,
+          var(--primary-color) 0%,
+          transparent 100%
+        );
+        border-radius: 4px;
+        opacity: 0.8;
+        animation: timelineEnergyFlow 3s ease-in-out infinite;
+        filter: blur(2px);
+        
+        @media (min-width: 969px) {
+          left: -1px !important;
+          transform: none !important;
+        }
+      }
+      
+      // ============================================================================
+      // Timeline Particles - Floating Animation Elements
+      // ============================================================================
+      .timeline-particle {
+        position: absolute;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 1);
+        animation: timelineParticleFloat 4s ease-in-out infinite;
+        
+        @media (min-width: 969px) {
+          left: -1px !important;
+          transform: none !important;
+        }
+      }
+      
+      // ============================================================================
+      // Timeline Particle Positions
+      // ============================================================================
+      .timeline-particle-1 {
+        top: 15%;
+        animation-delay: 0s;
+      }
+      
+      .timeline-particle-2 {
+        top: 40%;
+        animation-delay: 1s;
+        width: 10px;
+        height: 10px;
+      }
+      
+      .timeline-particle-3 {
+        top: 65%;
+        animation-delay: 2s;
+      }
+      
+      // ============================================================================
+      // Timeline Connections - Connection Lines
+      // ============================================================================
+      .timeline-connection {
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        height: 30px;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        opacity: 0.4;
+        animation: timelineConnectionPulse 2s ease-in-out infinite;
+        
+        @media (min-width: 969px) {
+          left: 2px !important;
+          transform: none !important;
+        }
+      }
+      
+      // ============================================================================
+      // Timeline Connection Positions
+      // ============================================================================
+      .timeline-connection-1 {
+        top: 20%;
+        animation-delay: 0s;
+      }
+      
+      .timeline-connection-2 {
+        top: 35%;
+        animation-delay: 0.5s;
+      }
+      
+      .timeline-connection-3 {
+        top: 60%;
+        animation-delay: 1s;
+      }
+      
+      .timeline-connection-4 {
+        top: 80%;
+        animation-delay: 1.5s;
+      }
+      
+      // ============================================================================
+      // Timeline Markers - Circles for Each Experience (Aligned with Card Centers)
+      // ============================================================================
+      .timeline-marker {
+        position: absolute;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        transform: translateX(-50%) translateY(-50%);
+        background: var(--primary-color);
+        border: 3px solid var(--bg-secondary);
+        border-radius: 50%;
+        box-shadow: 
+          0 0 10px rgba(99, 102, 241, 0.6),
+          0 0 20px rgba(99, 102, 241, 0.3),
+          inset 0 0 5px rgba(255, 255, 255, 0.2);
+        z-index: 10;
+        
+        @media (min-width: 969px) {
+          left: 2px !important;
+          transform: translateX(-50%) translateY(-50%) !important;
+        }
+      }
+    }
+    
+    // ============================================================================
+    // Experience Item Wrapper - Contains Logo and Card
+    // ============================================================================
+    .experience-item-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+      min-height: 200px;
+      
+      // ============================================================================
+      // Timeline marker circle at the center of each card
+      // ============================================================================
+      &::before {
+        content: '';
+        position: absolute;
+        left: -8%;
+        top: 50%;
+        width: 16px;
+        height: 16px;
+        transform: translateX(-50%) translateY(-50%);
+        background: var(--primary-color);
+        border: 3px solid var(--bg-secondary);
+        border-radius: 50%;
+        box-shadow: 
+          0 0 10px rgba(99, 102, 241, 0.6),
+          0 0 20px rgba(99, 102, 241, 0.3),
+          inset 0 0 5px rgba(255, 255, 255, 0.2);
+        z-index: 10;
+        
+        @media (min-width: 969px) {
+          left: -7.8%;
+        }
+      }
+      
+      // ============================================================================
+      // Company Logo Wrapper
+      // ============================================================================
+      .company-logo-wrapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+      }
+      
+      // ============================================================================
+      // Company Logo
+      // ============================================================================
+      .company-logo {
+        width: 240px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-lg);
+        border: 2px solid #1e40af;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: var(--radius-md);
+        }
+        
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+      }
+      
+      // ============================================================================
+      // Company Website Link
+      // ============================================================================
+      .company-website-link {
+        color: #6b7280;
+        font-size: 0.75rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        
+        &:hover {
+          color: #4b5563;
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    // ============================================================================
+    // Experience Card - Individual Experience Entry
+    // ============================================================================
+    .experience-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-3xl);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      width: calc(50% - var(--spacing-lg));
+      max-width: 1000px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      
+      // ============================================================================
+      // Card Hover Effects
+      // ============================================================================
+      &:hover {
+        box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.2);
+        border-color: var(--primary-color);
+      }
+      
+      // ============================================================================
+      // Compact View - Collapsed Card State
+      // ============================================================================
+      .experience-compact {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          opacity: 0.9;
+        }
+        
+        .compact-header {
+          .position {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.3;
+          }
+          
+          .company {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+          }
+          
+          .compact-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+            
+            .period {
+              font-size: var(--font-size-sm);
+              color: var(--text-secondary);
+              font-weight: 500;
+            }
+            
+            .location {
+              font-size: var(--font-size-sm);
+              color: var(--text-muted);
+            }
+          }
+          
+          .compact-preview {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          
+          .expand-hint {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-light);
+            
+            .expand-icon {
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+          }
+        }
+      }
+      
+      // ============================================================================
+      // Expanded View - Full Card Details
+      // ============================================================================
+      .experience-expanded {
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid var(--border-light);
+        margin-top: var(--spacing-md);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                    padding-top 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                    margin-top 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      &.expanded {
+        .experience-expanded {
+          max-height: 2000px;
+          opacity: 1;
+          padding-top: var(--spacing-lg);
+          margin-top: var(--spacing-md);
+        }
+        
+        .expand-icon {
+          transform: rotate(180deg);
+        }
+      }
+      
+      // ============================================================================
+      // Expanded Header - Position, Company, Period
+      // ============================================================================
+      .experience-header {
+        margin-bottom: var(--spacing-xl);
+        
+        .position {
+          font-size: var(--font-size-2xl);
+          font-weight: 700;
+          color: var(--text-primary);
+          margin-bottom: var(--spacing-sm);
+          line-height: 1.3;
+        }
+        
+        .company {
+          font-size: var(--font-size-lg);
+          font-weight: 600;
+          color: var(--primary-color);
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .period {
+          font-size: var(--font-size-base);
+          color: var(--text-secondary);
+          font-weight: 500;
+        }
+      }
+      
+      // ============================================================================
+      // Experience Content - Description and Technologies
+      // ============================================================================
+      .experience-content {
+        .description {
+          color: var(--text-secondary);
+          line-height: 1.8;
+          margin-bottom: var(--spacing-xl);
+          list-style: none;
+          padding: 0;
+          
+          li {
+            position: relative;
+            padding-left: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-base);
+            
+            &::before {
+              content: '▸';
+              position: absolute;
+              left: 0;
+              color: var(--primary-color);
+              font-weight: bold;
+              font-size: var(--font-size-lg);
+            }
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        
+        .technologies {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--spacing-sm);
+          padding-top: var(--spacing-lg);
+          border-top: 1px solid var(--border-light);
+          
+          .tech-tag {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(139, 92, 246, 0.1) 100%);
+            color: var(--text-primary);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+              color: white;
+              border-color: var(--primary-color);
+              transform: translateY(-2px);
+              box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Timeline Animations
+// ============================================================================
+@keyframes timelineFlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes timelineCorePulse {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 
+      0 0 10px rgba(99, 102, 241, 0.5),
+      0 0 20px rgba(99, 102, 241, 0.3),
+      inset 0 0 10px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 
+      0 0 20px rgba(99, 102, 241, 0.8),
+      0 0 40px rgba(99, 102, 241, 0.5),
+      inset 0 0 15px rgba(99, 102, 241, 0.4);
+  }
+}
+
+@keyframes timelineEnergyFlow {
+  0% {
+    top: 0;
+    opacity: 0.8;
+    height: 100px;
+  }
+  50% {
+    top: calc(50% - 50px);
+    opacity: 1;
+    height: 150px;
+  }
+  100% {
+    top: calc(100% - 100px);
+    opacity: 0.3;
+    height: 100px;
+  }
+}
+
+@keyframes timelineParticleFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px) scale(1.1);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-15px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes timelineConnectionPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scaleY(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scaleY(1.5);
+  }
+}
+
+// ============================================================================
+// Media Queries - Tablet and Mobile Responsive
+// ============================================================================
+@media (max-width: 968px) {
+  .experience-section {
+    padding: var(--spacing-3xl) 0;
+    
+    .section-header {
+      margin-bottom: var(--spacing-3xl);
+      
+      .section-title {
+        font-size: var(--font-size-2xl);
+      }
+    }
+    
+    .experience-grid {
+      gap: var(--spacing-2xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .experience-item-wrapper {
+        width: 100%;
+        max-width: 600px;
+        
+        .company-logo-wrapper {
+          display: none;
+        }
+      }
+      
+      .experience-card {
+        width: 95%;
+        max-width: 700px;
+        padding: var(--spacing-2xl);
+        margin-left: auto !important;
+        margin-right: auto !important;
+        
+        &::before {
+          display: none;
+        }
+        
+        &::after {
+          display: none;
+        }
+        
+        &:nth-child(odd),
+        &:nth-child(even) {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Desktop Layout - Timeline Left, Cards Right, Logos After Cards
+// ============================================================================
+@media (min-width: 969px) {
+  .experience-section {
+    .experience-grid {
+      &::after {
+        display: none !important;
+      }
+      
+      .central-timeline {
+        left: 5% !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        
+        .timeline-core {
+          left: 0 !important;
+          transform: none !important;
+          margin-left: 0 !important;
+        }
+        
+        .timeline-energy {
+          left: -1px !important;
+          transform: none !important;
+          margin-left: 0 !important;
+        }
+        
+        .timeline-particle {
+          left: -1px !important;
+          transform: none !important;
+          margin-left: 0 !important;
+        }
+        
+        .timeline-connection {
+          left: 2px !important;
+          transform: none !important;
+          margin-left: 0 !important;
+        }
+      }
+      
+      .experience-item-wrapper {
+        margin-left: 12%;
+        padding-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+        .experience-card {
+          margin-left: 0 !important;
+          margin-right: auto !important;
+          width: 900px !important;
+          max-width: 900px !important;
+          flex-shrink: 0;
+          
+          &::after {
+            display: none;
+          }
+        }
+        
+        .company-logo-wrapper {
+          position: absolute;
+          left: calc(12% + 900px + var(--spacing-sm)) !important;
+          right: auto;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Mobile Layout - Extra Small Screens
+// ============================================================================
+@media (max-width: 480px) {
+  .experience-section {
+    .experience-grid {
+      .experience-item-wrapper {
+        .company-logo-wrapper {
+          display: none;
+        }
+      }
+      
+      .experience-card {
+        width: 95%;
+        padding: var(--spacing-lg);
+        max-width: 100%;
+        
+        &::before {
+          display: none;
+        }
+        
+        .experience-header {
+          .position {
+            font-size: var(--font-size-xl);
+          }
+          
+          .company {
+            font-size: var(--font-size-base);
+          }
+        }
+        
+        .experience-content {
+          .description {
+            li {
+              font-size: var(--font-size-sm);
+              padding-left: var(--spacing-lg);
+            }
+          }
+        }
+      }
+    }
+  }
+}

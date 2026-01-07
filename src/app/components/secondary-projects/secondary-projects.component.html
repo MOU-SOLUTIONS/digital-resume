@@ -1,0 +1,129 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- ============================================================================ -->
+<!-- Main Container -->
+<!-- ============================================================================ -->
+<div class="secondary-projects">
+  <!-- ============================================================================ -->
+  <!-- Section Title -->
+  <!-- ============================================================================ -->
+  <h3 class="secondary-projects__title">{{ getTranslation('projects.otherProjects') }}</h3>
+  
+  <!-- ============================================================================ -->
+  <!-- Introduction -->
+  <!-- ============================================================================ -->
+  <div class="secondary-projects__intro">
+    <p class="secondary-projects__intro-text">
+      {{ getTranslation('projects.introSecondary') }}
+    </p>
+  </div>
+  <!-- ============================================================================ -->
+  <!-- Projects Grid -->
+  <!-- ============================================================================ -->
+  <div class="secondary-projects__grid">
+    <article 
+      *ngFor="let project of projects; trackBy: trackByProject" 
+      class="secondary-projects__card"
+      [attr.aria-label]="getTranslation('projects.cardLabel') + ': ' + getTranslatedTitle(project)"
+    >
+      <!-- ============================================================================ -->
+      <!-- Card Image -->
+      <!-- ============================================================================ -->
+      <div class="secondary-projects__card-image">
+        <img 
+          [src]="project.image" 
+          [alt]="getTranslatedTitle(project) + ' ' + getTranslation('projects.screenshot')"
+          class="secondary-projects__card-img"
+          (error)="onImageError($event)"
+          loading="lazy"
+        />
+        <div class="secondary-projects__card-image-overlay">
+          <div class="secondary-projects__card-type-badge">
+            {{ getTranslation('projects.types.' + getProjectType(project)) }}
+          </div>
+        </div>
+      </div>
+      
+      <!-- ============================================================================ -->
+      <!-- Card Content -->
+      <!-- ============================================================================ -->
+      <div class="secondary-projects__card-content">
+        <!-- ============================================================================ -->
+        <!-- Card Header -->
+        <!-- ============================================================================ -->
+        <header class="secondary-projects__card-header">
+          <h4 class="secondary-projects__card-title">{{ getTranslatedTitle(project) }}</h4>
+        </header>
+        
+        <!-- ============================================================================ -->
+        <!-- Card Body -->
+        <!-- ============================================================================ -->
+        <div class="secondary-projects__card-body">
+          <p class="secondary-projects__card-description">{{ getTranslatedDescription(project) }}</p>
+          
+          <div class="secondary-projects__card-tech">
+            <h5 class="secondary-projects__card-tech-title">{{ getTranslation('projects.technologies') }}</h5>
+            <div class="secondary-projects__card-tech-grid">
+              <div 
+                *ngFor="let tech of project.technologies; trackBy: trackByTech" 
+                class="secondary-projects__card-tech-item"
+              >
+                <span class="secondary-projects__card-tech-icon" aria-hidden="true">⚡</span>
+                <span class="secondary-projects__card-tech-name">{{ getTranslatedTechnology(tech) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ============================================================================ -->
+        <!-- Card Footer -->
+        <!-- ============================================================================ -->
+        <footer class="secondary-projects__card-footer">
+          <div 
+            *ngIf="isEKanbanProject(project)" 
+            class="secondary-projects__card-security-note"
+          >
+            <div class="secondary-projects__card-security-icon">
+              <app-icon name="book" [size]="16"></app-icon>
+            </div>
+            <div class="secondary-projects__card-security-content">
+              <p class="secondary-projects__card-security-text">{{ getTranslation('projects.securityMessage') }}</p>
+            </div>
+          </div>
+          
+          <div 
+            *ngIf="!isEKanbanProject(project)" 
+            class="secondary-projects__card-links"
+          >
+            <a 
+              *ngIf="project.githubUrl" 
+              [href]="project.githubUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="secondary-projects__card-link secondary-projects__card-link--github"
+              [attr.aria-label]="getTranslation('projects.githubLink') + ': ' + getTranslatedTitle(project)"
+            >
+              <app-icon name="book" [size]="16"></app-icon>
+              {{ getTranslation('projects.viewCode') }}
+            </a>
+            <a 
+              *ngIf="project.liveUrl" 
+              [href]="project.liveUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="secondary-projects__card-link secondary-projects__card-link--live"
+              [attr.aria-label]="getTranslation('projects.liveLink') + ': ' + getTranslatedTitle(project)"
+            >
+              <app-icon name="chevron-right" [size]="16"></app-icon>
+              {{ getTranslation('projects.viewLive') }}
+            </a>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </div>
+</div>

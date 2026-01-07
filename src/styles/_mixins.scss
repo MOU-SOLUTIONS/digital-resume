@@ -1,0 +1,118 @@
+// --------------------------------------------------------------------------------
+// Coded by Mohamed Amine Dhaoui in 2025
+// --------------------------------------------------------------------------------
+
+// Breakpoint mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 360px) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: 480px) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: 1024px) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: 1200px) { @content; }
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography mixins
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Animation mixins
+@mixin smooth-transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin hover-lift($distance: -8px) {
+  @include smooth-transition(transform, 0.3s, cubic-bezier(0.34, 1.56, 0.64, 1));
+  
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// Shadow mixins
+@mixin soft-shadow($color: rgba(0, 0, 0, 0.1), $blur: 10px) {
+  box-shadow: 0 4px $blur $color;
+}
+
+@mixin card-shadow {
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// Border radius mixins
+@mixin rounded($radius: 8px) {
+  border-radius: $radius;
+}
+
+@mixin rounded-full {
+  border-radius: 50%;
+}
+
+// Focus styles
+@mixin focus-ring($color: #6366f1, $offset: 2px) {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 $offset $color;
+  }
+}
+
+// Accessibility mixins
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Grid mixins
+@mixin grid-auto-fit($min-width: 300px, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Container mixins
+@mixin container($max-width: 1200px, $padding: 2rem) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $padding;
+} 

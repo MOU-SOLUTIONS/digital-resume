@@ -1,0 +1,548 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Imports
+// ============================================================================
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/animations' as *;
+
+// ============================================================================
+// Main Component
+// ============================================================================
+.master-project {
+  margin-top: $spacing-4xl;
+  margin-bottom: $spacing-5xl;
+
+  // ============================================================================
+  // Title
+  // ============================================================================
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -$spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, $color-primary, $color-secondary);
+      @include rounded($radius-sm);
+    }
+  }
+
+  // ============================================================================
+  // Intro Section
+  // ============================================================================
+  &__intro {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.3) 100%);
+    padding: $spacing-xl;
+    @include rounded($radius-lg);
+    border: 1px solid rgba($color-primary, 0.1);
+    box-shadow: 0 6px 20px rgba($color-accent, 0.08);
+    margin-bottom: $spacing-2xl;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, $color-primary, $color-secondary);
+      @include rounded($radius-sm);
+    }
+  }
+
+  &__intro-text {
+    font-size: $font-size-base;
+    color: var(--text-secondary);
+    line-height: $line-height-relaxed;
+    margin: 0;
+    text-align: center;
+  }
+
+  // ============================================================================
+  // Card Container
+  // ============================================================================
+  &__card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.5) 100%);
+    @include rounded($radius-2xl);
+    box-shadow: 0 20px 40px rgba($color-accent, 0.1), 0 10px 20px rgba($color-primary, 0.05);
+    border: 2px solid rgba($color-primary, 0.1);
+    overflow: hidden;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, $color-primary, $color-secondary, $color-primary);
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 500px;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ============================================================================
+  // Image Section
+  // ============================================================================
+  &__image {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+
+    @include respond-to(md) {
+      height: 300px;
+      min-height: auto;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include smooth-transition(transform, 0.5s, ease);
+  }
+
+  &__image-overlay {
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    z-index: 2;
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    color: $color-white;
+    padding: $spacing-sm $spacing-md;
+    @include rounded($radius-lg);
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  &__badge-icon {
+    font-size: $font-size-base;
+    animation: rotate 4s linear infinite;
+  }
+
+  // ============================================================================
+  // Content Section
+  // ============================================================================
+  &__content {
+    padding: $spacing-2xl;
+    @include flex-column;
+    justify-content: space-between;
+    position: relative;
+
+    @include respond-to(md) {
+      padding: $spacing-xl;
+    }
+    @include respond-to(sm) {
+      padding: $spacing-lg;
+    }
+    @include respond-to(xs) {
+      padding: $spacing-md;
+    }
+  }
+
+  // ============================================================================
+  // Header
+  // ============================================================================
+  &__header {
+    margin-bottom: $spacing-xl;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__project-title {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-sm 0;
+    color: var(--text-secondary);
+
+    @include respond-to(md) {
+      font-size: $font-size-3xl;
+    }
+    @include respond-to(sm) {
+      font-size: $font-size-2xl;
+    }
+    @include respond-to(xs) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+    margin: 0;
+    font-style: italic;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  // ============================================================================
+  // Body
+  // ============================================================================
+  &__body {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-xl;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  // ============================================================================
+  // Technologies Section
+  // ============================================================================
+  &__tech {
+    margin-bottom: $spacing-xl;
+
+    &-title {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      color: var(--text-secondary);
+      margin: 0 0 $spacing-md 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: $spacing-sm;
+
+      @include respond-to(md) {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+      @include respond-to(sm) {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+      @include respond-to(xs) {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      padding: $spacing-sm;
+      background: var(--bg-secondary);
+      @include rounded($radius-md);
+      border: 1px solid var(--border-color);
+      @include smooth-transition(all, 0.3s, ease);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba($color-primary, 0.1), transparent);
+        @include smooth-transition(left, 0.5s, ease);
+      }
+
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+        border-color: $color-primary;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 20px rgba($color-primary, 0.4);
+
+        &::before {
+          left: 100%;
+        }
+      }
+
+      @include respond-to(xs) {
+        flex-direction: column;
+        text-align: center;
+        gap: $spacing-xs;
+      }
+    }
+
+    &-icon {
+      font-size: $font-size-base;
+      flex-shrink: 0;
+    }
+
+    &-name {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      @include truncate-text;
+    }
+  }
+
+  // ============================================================================
+  // Footer
+  // ============================================================================
+  &__footer {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    z-index: 1;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+
+    @include respond-to(md) {
+      padding: $spacing-md $spacing-lg;
+      margin-top: $spacing-lg;
+    }
+    @include respond-to(sm) {
+      padding: $spacing-md;
+      margin-top: $spacing-md;
+    }
+  }
+
+  // ============================================================================
+  // Links
+  // ============================================================================
+  &__links {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      width: 100%;
+    }
+    @include respond-to(sm) {
+      gap: $spacing-sm;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    @include rounded($radius-lg);
+    text-decoration: none;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    @include smooth-transition(all, 0.3s, ease);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      @include smooth-transition(left, 0.6s, ease);
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    &--github {
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+
+      &:hover {
+        background: $color-accent;
+        color: $color-white;
+        border-color: $color-accent;
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba($color-accent, 0.4);
+      }
+    }
+
+    &--live {
+      color: $color-white;
+      background: linear-gradient(135deg, $color-primary, $color-secondary);
+      border-color: $color-primary;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba($color-primary, 0.5);
+      }
+    }
+
+    app-icon {
+      flex-shrink: 0;
+    }
+
+    &:hover app-icon {
+      transform: scale(1.1) rotate(12deg);
+    }
+
+    @include respond-to(md) {
+      width: 100%;
+      justify-content: center;
+    }
+    @include respond-to(sm) {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .master-project {
+    &__title {
+      color: var(--text-primary);
+
+      &::after {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      }
+    }
+
+    &__intro {
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border-color: var(--border-color);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    &__intro-text {
+      color: var(--text-secondary);
+    }
+
+    &__card {
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border-color: var(--border-color);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4);
+
+      &::before {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+      }
+    }
+
+    &__image {
+      background: var(--bg-secondary);
+    }
+
+    &__project-title {
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+    }
+
+    &__subtitle,
+    &__description {
+      color: var(--text-secondary);
+    }
+
+    &__tech-title {
+      color: var(--text-primary);
+    }
+
+    &__tech-item {
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+      color: var(--text-secondary);
+
+      &::before {
+        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+      }
+
+      &:hover {
+        background: rgba(99, 102, 241, 0.25);
+        color: var(--text-primary);
+        border-color: var(--primary-color);
+        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+      }
+    }
+
+    &__footer {
+      border-top-color: var(--border-color);
+    }
+
+    &__link {
+      &--github {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: #FFFFFF !important;
+
+        &:hover {
+          background: var(--accent-color);
+          color: #FFFFFF !important;
+          border-color: var(--accent-color);
+          box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+      }
+
+      &--live {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-color: var(--primary-color);
+      }
+    }
+
+    &__badge {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+  }
+}
+
+// ============================================================================
+// RTL Support
+// ============================================================================
+[dir="rtl"] {
+  .master-project {
+    &__tech-item {
+      flex-direction: row-reverse;
+    }
+  }
+}

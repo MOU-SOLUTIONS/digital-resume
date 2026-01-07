@@ -1,0 +1,35 @@
+<!--
+  Editor / Developer: Mohamed Dhaoui
+  Project: Digital Resume
+  Date: 2025-01-27
+-->
+
+<!-- Stats Section Container -->
+<section 
+  class="stats-section" 
+  role="region" 
+  [attr.aria-label]="languageService.getTranslation('stats.title')"
+  itemscope 
+  itemtype="https://schema.org/ItemList">
+  <!-- Section Header -->
+  <header class="section-header">
+    <h2 class="section-title" itemprop="name">{{ languageService.getTranslation('stats.title') }}</h2>
+  </header>
+  <!-- Stats Container -->
+  <div class="stats-container">
+    <!-- Stat Items -->
+    <div 
+      class="stat-item" 
+      *ngFor="let stat of stats; trackBy: trackByStatKey; let i = index"
+      data-aos="fade-up" 
+      data-aos-duration="800" 
+      [attr.data-aos-delay]="i * 100"
+      itemprop="itemListElement"
+      itemscope
+      itemtype="https://schema.org/ListItem">
+      <meta itemprop="position" [attr.content]="i + 1">
+      <div class="stat-number" itemprop="value">{{ stat.number }}</div>
+      <div class="stat-label" itemprop="name">{{ languageService.getTranslation(stat.key) }}</div>
+    </div>
+  </div>
+</section>

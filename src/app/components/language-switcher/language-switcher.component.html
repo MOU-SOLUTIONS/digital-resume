@@ -1,0 +1,26 @@
+<!-- -------------------------------------------------------------------------------- -->
+<!-- Coded by Mohamed Amine Dhaoui in 2025 -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<div class="language-switcher">
+  <div #currentButton class="language-switcher__current" (click)="toggleDropdown()">
+    <span class="language-switcher__flag">
+      <img [src]="getCurrentLanguageFlag()" [alt]="getCurrentLanguageName() + ' flag'" class="flag-icon">
+    </span>
+    <span class="language-switcher__name">{{ getCurrentLanguageName() }}</span>
+    <span class="language-switcher__arrow" [class.language-switcher__arrow--open]="isDropdownOpen">▼</span>
+  </div>
+  
+  <div #dropdown class="language-switcher__dropdown" [class.language-switcher__dropdown--open]="isDropdownOpen" [ngStyle]="dropdownStyle">
+    <div 
+      class="language-switcher__option" 
+      *ngFor="let lang of languages"
+      (click)="selectLanguage(lang.code)"
+      [class.language-switcher__option--active]="isCurrentLanguage(lang.code)">
+      <span class="language-switcher__option-flag">
+        <img [src]="lang.flagPath" [alt]="lang.name + ' flag'" class="flag-icon">
+      </span>
+      <span class="language-switcher__option-name">{{ lang.name }}</span>
+    </div>
+  </div>
+</div> 

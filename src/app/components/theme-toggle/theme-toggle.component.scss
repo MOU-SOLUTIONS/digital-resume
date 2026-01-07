@@ -1,0 +1,187 @@
+/* -------------------------------------------------------------------------------- */
+/* Coded by Mohamed Amine Dhaoui in 2025 */
+/* -------------------------------------------------------------------------------- */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--bg-glass);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+  
+  &:hover {
+    background: var(--bg-card);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &__icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__sun,
+  &__moon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+  }
+  
+  &__sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    
+    &--hidden {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.8);
+      pointer-events: none;
+    }
+  }
+  
+  &__moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+    
+    &--hidden {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.8);
+      pointer-events: none;
+    }
+    
+    &:not(.theme-toggle__moon--hidden) {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+/* Dark theme styles for the button */
+[data-theme="dark"] .theme-toggle {
+  background: var(--bg-glass);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    background: rgba(15, 23, 42, 1);
+    border-color: var(--text-accent);
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
+    color: var(--text-accent);
+  }
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    
+    &__icon {
+      width: 19px;
+      height: 19px;
+    }
+    
+    &__sun,
+    &__moon {
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    
+    &__icon {
+      width: 18px;
+      height: 18px;
+    }
+    
+    &__sun,
+    &__moon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    
+    &__icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    &__sun,
+    &__moon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    
+    &__icon {
+      width: 15px;
+      height: 15px;
+    }
+    
+    &__sun,
+    &__moon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    
+    &__icon {
+      width: 13px;
+      height: 13px;
+    }
+    
+    &__sun,
+    &__moon {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}
+

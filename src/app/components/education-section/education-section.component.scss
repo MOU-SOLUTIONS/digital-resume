@@ -1,0 +1,932 @@
+/**
+ * Editor / Developer: Mohamed Dhaoui
+ * Project: Digital Resume
+ * Date: 2025-01-27
+ */
+
+// ============================================================================
+// Imports
+// ============================================================================
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/animations' as *;
+
+// ============================================================================
+// Main Component
+// ============================================================================
+.education-section {
+  background: var(--bg-gradient);
+  min-height: calc(100vh - 70px);
+  padding: $education-section-padding;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+// ============================================================================
+// Container
+// ============================================================================
+.education-section__container {
+  @include container($container-xl, $spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+// ============================================================================
+// Header
+// ============================================================================
+.education-section__header {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+}
+
+.education-section__header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// ============================================================================
+// Title
+// ============================================================================
+.education-section__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    animation: underlineExpand 1s ease-out;
+  }
+}
+
+// ============================================================================
+// Title Accent
+// ============================================================================
+.education-section__title-accent {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #1e293b, #334155, #475569, #334155, #1e293b);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  @include rounded($radius-sm);
+  margin: $spacing-md auto 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #1e293b, #3c4858, #555d69, #3c4858, #1e293b);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+    @include rounded($radius-md);
+    opacity: 0.3;
+    filter: blur(4px);
+  }
+}
+
+// ============================================================================
+// Grid
+// ============================================================================
+.education-section__grid {
+  @include grid-auto-fit(400px, $spacing-xl);
+  margin-top: $spacing-2xl;
+}
+
+.education-section__item {
+  animation: fadeInUp 0.6s ease forwards;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+// ============================================================================
+// Card
+// ============================================================================
+.education-section__card {
+  background: var(--bg-card);
+  @include rounded($radius-xl);
+  padding: $spacing-xl;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  min-height: $education-card-min-height;
+  @include smooth-transition(all, 0.4s, ease);
+  transform-style: preserve-3d;
+  @include focus-ring;
+  
+  &:hover:not(&--flipped) {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  &--flipped {
+    transform: rotateY(180deg);
+  }
+  
+  &--flipped:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+// ============================================================================
+// Card Front/Back
+// ============================================================================
+.education-section__card-front,
+.education-section__card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  @include flex-column;
+  overflow: hidden;
+  @include rounded($radius-xl);
+}
+
+.education-section__card-front {
+  background: var(--bg-card);
+  padding: $spacing-xl;
+}
+
+.education-section__card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  padding: $spacing-lg;
+  color: var(--text-primary);
+}
+
+// ============================================================================
+// Card Header
+// ============================================================================
+.education-section__card-header {
+  @include flex-between;
+  align-items: flex-start;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+// ============================================================================
+// Icon
+// ============================================================================
+.education-section__icon {
+  width: $education-icon-size;
+  height: $education-icon-size;
+  background: var(--bg-tertiary);
+  @include rounded($radius-xl);
+  @include flex-center;
+  color: var(--primary-color);
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.education-section__icon-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  @include rounded($radius-lg);
+  padding: $spacing-sm;
+}
+
+.education-section__icon-fallback {
+  width: 40px;
+  height: 40px;
+}
+
+// ============================================================================
+// Degree Info
+// ============================================================================
+.education-section__degree-info {
+  flex: 1;
+}
+
+.education-section__degree-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  margin-bottom: $spacing-sm;
+  line-height: $line-height-tight;
+  @include smooth-transition(all, 0.6s, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+
+.education-section__institution {
+  font-size: $font-size-base;
+  color: var(--primary-color);
+  font-weight: $font-weight-medium;
+  margin: 0;
+}
+
+// ============================================================================
+// Card Content
+// ============================================================================
+.education-section__card-content {
+  flex: 1;
+  @include flex-column;
+  overflow: hidden;
+}
+
+// ============================================================================
+// Meta Info
+// ============================================================================
+.education-section__meta-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-3xl;
+  
+  @include respond-to(md) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  @include respond-to(sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  @include respond-to(xs) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+}
+
+// ============================================================================
+// Meta Item
+// ============================================================================
+.education-section__meta-item {
+  @include flex-center;
+  justify-content: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: var(--bg-tertiary);
+  @include rounded($radius-lg);
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  @include smooth-transition(all, 0.5s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+  border: 1px solid var(--border-color);
+  flex: 1;
+  min-height: 48px;
+  align-items: center;
+  
+  @include respond-to(md) {
+    font-size: $font-size-sm;
+    padding: $spacing-sm $spacing-md;
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+  }
+  
+  @include respond-to(sm) {
+    font-size: $font-size-sm;
+    padding: $spacing-sm $spacing-md;
+    max-width: none;
+    min-height: 44px;
+  }
+  
+  @include respond-to(xs) {
+    font-size: $font-size-xs;
+    padding: $spacing-sm;
+    width: 100%;
+    max-width: none;
+    min-height: 40px;
+  }
+}
+
+.education-section__meta-icon {
+  flex-shrink: 0;
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__meta-text {
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__meta-item:hover {
+  .education-section__meta-icon {
+    color: var(--primary-color);
+    animation: iconBounce 0.6s ease-in-out;
+  }
+  
+  .education-section__meta-text {
+    color: var(--primary-color);
+    transform: translateX(2px);
+  }
+}
+
+// ============================================================================
+// Description
+// ============================================================================
+.education-section__description {
+  margin-bottom: $spacing-xl;
+  flex-shrink: 0;
+}
+
+.education-section__description-text {
+  color: var(--text-secondary);
+  line-height: $line-height-relaxed;
+  font-size: $font-size-sm;
+  margin: 0;
+}
+
+// ============================================================================
+// GPA
+// ============================================================================
+.education-section__gpa {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  @include rounded($radius-lg);
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-sm;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  @include smooth-transition(all, 0.3s, ease);
+  cursor: pointer;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: skewX(-15deg);
+    transition: left 0.6s ease;
+    z-index: 0;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    .education-section__gpa-value {
+      transform: scale(1.05);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    
+    .education-section__gpa-label {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.education-section__gpa-label {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: $spacing-sm;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.education-section__gpa-value {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  font-family: $font-family-primary;
+  text-align: center;
+  display: block;
+  position: relative;
+  z-index: 1;
+  @include smooth-transition(all, 0.3s, ease);
+}
+
+// ============================================================================
+// Flip Hint
+// ============================================================================
+.education-section__flip-hint {
+  @include flex-center;
+  gap: $spacing-sm;
+  margin-top: auto;
+  padding: $spacing-sm;
+  background: var(--bg-tertiary);
+  @include rounded($radius-md);
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  @include smooth-transition(all, 0.3s, ease);
+}
+
+.education-section__flip-hint-icon {
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__flip-hint-text {
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__flip-hint:hover {
+  .education-section__flip-hint-icon {
+    transform: rotate(360deg) scale(1.2);
+  }
+  
+  .education-section__flip-hint-text {
+    transform: translateX(4px);
+  }
+}
+
+// ============================================================================
+// Card Back
+// ============================================================================
+.education-section__back-header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+}
+
+.education-section__back-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.education-section__back-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  @include rounded-full;
+  @include flex-center;
+  @include smooth-transition(all, 0.3s, ease);
+}
+
+.education-section__back-icon-svg {
+  color: var(--text-primary);
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__back-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  
+  .education-section__back-icon-svg {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+// ============================================================================
+// Courses
+// ============================================================================
+.education-section__courses-container {
+  flex: 1;
+  @include flex-column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.education-section__courses-grid {
+  @include grid-auto-fit(200px, $spacing-md);
+}
+
+.education-section__course-tag {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--text-primary);
+  padding: $spacing-md;
+  @include rounded($radius-lg);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  @include smooth-transition(all, 0.3s, ease);
+  
+  &:hover {
+    background: rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.education-section__flip-back-hint {
+  @include flex-center;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  @include smooth-transition(all, 0.3s, ease);
+}
+
+.education-section__flip-back-hint-icon {
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__flip-back-hint-text {
+  @include smooth-transition(all, 0.4s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+.education-section__flip-back-hint:hover {
+  .education-section__flip-back-hint-icon {
+    transform: rotate(-360deg) scale(1.2);
+  }
+  
+  .education-section__flip-back-hint-text {
+    transform: translateX(-4px);
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+@include respond-to(md) {
+  .education-section {
+    padding: $education-section-padding-mobile;
+  }
+  
+  .education-section__title {
+    font-size: $font-size-4xl !important;
+  }
+  
+  .education-section__grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+  
+  .education-section__card {
+    min-height: $education-card-min-height-mobile;
+    padding: $spacing-lg;
+    
+    .education-section__card-back {
+      padding: $spacing-md;
+      
+      .education-section__back-header {
+        margin-bottom: $spacing-md;
+      }
+      
+      .education-section__flip-back-hint {
+        margin-top: $spacing-sm;
+      }
+    }
+  }
+  
+  .education-section__card-header {
+    @include flex-column;
+    align-items: center;
+    gap: $spacing-lg;
+    text-align: center;
+  }
+  
+  .education-section__icon {
+    width: 70px;
+    height: 70px;
+    
+    .education-section__icon-logo {
+      padding: 6px;
+    }
+    
+    .education-section__icon-fallback {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  .education-section__degree-title {
+    font-size: $font-size-xl;
+  }
+  
+  .education-section__institution {
+    font-size: $font-size-base;
+  }
+}
+
+@include respond-to(sm) {
+  .education-section__card {
+    min-height: $education-card-min-height-mobile;
+    padding: $spacing-md;
+    
+    .education-section__card-back {
+      padding: $spacing-sm;
+      
+      .education-section__back-header {
+        margin-bottom: $spacing-sm;
+      }
+      
+      .education-section__flip-back-hint {
+        margin-top: $spacing-sm;
+      }
+    }
+  }
+  
+  .education-section__icon {
+    width: $education-icon-size-mobile;
+    height: $education-icon-size-mobile;
+    
+    .education-section__icon-logo {
+      padding: 5px;
+    }
+    
+    .education-section__icon-fallback {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  .education-section__degree-title {
+    font-size: $font-size-lg;
+  }
+  
+  .education-section__institution {
+    font-size: $font-size-sm;
+  }
+}
+
+@include respond-to(xs) {
+  .education-section__card {
+    min-height: 750px;
+    padding: $spacing-sm;
+    
+    .education-section__card-back {
+      padding: $spacing-xs;
+      
+      .education-section__back-header {
+        margin-bottom: $spacing-xs;
+      }
+      
+      .education-section__flip-back-hint {
+        margin-top: $spacing-sm;
+      }
+    }
+  }
+  
+  .education-section__icon {
+    width: 55px;
+    height: 55px;
+    
+    .education-section__icon-logo {
+      padding: 4px;
+    }
+    
+    .education-section__icon-fallback {
+      width: 28px;
+      height: 28px;
+    }
+  }
+  
+  .education-section__degree-title {
+    font-size: $font-size-base;
+  }
+  
+  .education-section__institution {
+    font-size: $font-size-sm;
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
+
+@keyframes gradientShiftStrong {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+// ============================================================================
+// Dark Theme
+// ============================================================================
+[data-theme="dark"] {
+  .education-section {
+    background: var(--bg-gradient);
+    
+    &::before {
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+    }
+  }
+
+  .education-section__title {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    &::after {
+      background: var(--gradient-primary);
+    }
+  }
+
+  .education-section__title-accent {
+    background: linear-gradient(135deg, var(--text-primary) 20%, var(--text-secondary) 40%, var(--text-primary) 60%, var(--text-secondary) 80%, var(--text-primary) 100%);
+    
+    &::before {
+      background: linear-gradient(135deg, var(--text-primary) 10%, var(--text-secondary) 30%, var(--text-primary) 50%, var(--text-secondary) 70%, var(--text-primary) 90%);
+    }
+  }
+
+  .education-section__card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.4),
+      0 4px 10px rgba(0, 0, 0, 0.3);
+
+    &:hover:not(&--flipped) {
+      border-color: var(--primary-color);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 10px 20px rgba(99, 102, 241, 0.2);
+    }
+
+    &--flipped:hover {
+      border-color: var(--primary-color);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 10px 20px rgba(99, 102, 241, 0.2);
+    }
+  }
+
+  .education-section__card-front {
+    background: var(--bg-card);
+  }
+
+  .education-section__card-back {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    color: var(--text-primary);
+  }
+
+  .education-section__icon {
+    background: #ffffff;
+    border-color: var(--border-color);
+    color: var(--primary-color);
+  }
+
+  .education-section__icon-logo {
+    background: #ffffff;
+    @include rounded($radius-lg);
+  }
+
+  .education-section__degree-title {
+    color: var(--text-primary);
+  }
+
+  .education-section__institution {
+    color: var(--primary-color);
+  }
+
+  .education-section__meta-item {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+
+    &:hover {
+      .education-section__meta-icon {
+        color: var(--primary-color);
+      }
+      
+      .education-section__meta-text {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .education-section__description-text {
+    color: var(--text-secondary);
+  }
+
+  .education-section__gpa {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      
+      .education-section__gpa-label {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .education-section__gpa-label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .education-section__gpa-value {
+    color: #ffffff;
+  }
+
+  .education-section__flip-hint {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+
+    &:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: var(--primary-color);
+    }
+  }
+
+  .education-section__back-title {
+    color: var(--text-primary);
+  }
+
+  .education-section__back-icon {
+    background: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .education-section__back-icon-svg {
+    color: var(--text-primary);
+  }
+
+  .education-section__course-tag {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    }
+  }
+
+  .education-section__flip-back-hint {
+    color: var(--text-secondary);
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+}
+
