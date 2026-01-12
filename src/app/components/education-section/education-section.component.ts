@@ -305,7 +305,6 @@ export class EducationSectionComponent implements OnInit, OnDestroy {
     const description = this.generateDescription();
     const safeDescription = description || `${titleText} - ${name}`;
 
-    this.title.setTitle(safeTitle);
     this.meta.updateTag({ name: 'description', content: safeDescription });
     this.meta.updateTag({ property: 'og:title', content: safeTitle });
     this.meta.updateTag({ property: 'og:type', content: 'website' });

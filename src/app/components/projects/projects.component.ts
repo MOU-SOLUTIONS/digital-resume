@@ -180,8 +180,6 @@ export class ProjectsSectionComponent implements OnInit, OnDestroy {
     const safeDescription = this.generateDescription();
     const currentUrl = isPlatformBrowser(this.platformId) ? window.location.href : '';
     const locale = this.getLocale();
-
-    this.title.setTitle(safeTitle);
     this.meta.updateTag({ name: 'description', content: safeDescription });
     this.meta.updateTag({ name: 'keywords', content: this.generateKeywords() });
     this.meta.updateTag({ name: 'author', content: name });

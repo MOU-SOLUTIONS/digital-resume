@@ -235,7 +235,6 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
     const safeTitle = `${titleText} - ${name} | Digital Resume`;
     const safeDescription = subtitleText || `${titleText} - ${name}`;
 
-    this.title.setTitle(safeTitle);
     this.meta.updateTag({ name: 'description', content: safeDescription });
     this.meta.updateTag({ property: 'og:title', content: safeTitle });
     this.meta.updateTag({ property: 'og:type', content: 'website' });

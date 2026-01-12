@@ -117,10 +117,10 @@ export class LanguageService {
       es: 'Apasionado por crear soluciones web innovadoras y construir aplicaciones escalables'
     },
     'home.cta': {
-      en: 'Get In Touch',
-      fr: 'Me Contacter',
-      ar: 'تواصل معي',
-      es: 'Ponte en Contacto'
+      en: 'Contact',
+      fr: 'Contact',
+      ar: 'اتصل',
+      es: 'Contacto'
     },
     'home.downloadCV': {
       en: '📄 Download CV',
@@ -1972,10 +1972,10 @@ export class LanguageService {
 
     // Contact Section
     'contact.title': {
-      en: 'Get In Touch',
-      fr: 'Me Contacter',
-      ar: 'تواصل معي',
-      es: 'Ponte en Contacto'
+      en: 'Contact',
+      fr: 'Contact',
+      ar: 'اتصل',
+      es: 'Contacto'
     },
     'contact.description': {
       en: 'I\'m always interested in new opportunities and exciting projects. Feel free to reach out!',

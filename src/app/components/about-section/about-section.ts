@@ -112,8 +112,6 @@ export class AboutSectionComponent implements OnInit, OnDestroy {
     const description = this.languageService.getTranslation('about.description');
     const name = this.languageService.getTranslation('home.name');
     
-    this.title.setTitle(`${titleText} - ${name} | Digital Resume`);
-    
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ property: 'og:title', content: `${titleText} - ${name}` });
     this.meta.updateTag({ property: 'og:description', content: description });

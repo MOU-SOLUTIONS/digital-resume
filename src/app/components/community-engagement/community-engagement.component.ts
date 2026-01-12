@@ -301,7 +301,6 @@ export class CommunityEngagementComponent implements OnInit, OnDestroy {
     const safeTitle = `${titleText} - ${name} | Digital Resume`;
     const safeDescription = this.generateDescription();
 
-    this.title.setTitle(safeTitle);
     this.meta.updateTag({ name: 'description', content: safeDescription });
     this.meta.updateTag({ property: 'og:title', content: safeTitle });
     this.meta.updateTag({ property: 'og:type', content: 'website' });

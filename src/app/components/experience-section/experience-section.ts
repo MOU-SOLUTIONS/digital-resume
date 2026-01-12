@@ -351,7 +351,6 @@ export class ExperienceSectionComponent implements OnInit, OnDestroy {
     const safeTitle = `${titleText}${titleSep}${name}${pipeSep}${digitalResume}`;
     const safeDescription = this.generateDescription();
 
-    this.title.setTitle(safeTitle);
     this.meta.updateTag({ name: 'description', content: safeDescription });
     this.meta.updateTag({ name: 'keywords', content: this.generateKeywords() });
     this.meta.updateTag({ name: 'robots', content: 'index,follow' });

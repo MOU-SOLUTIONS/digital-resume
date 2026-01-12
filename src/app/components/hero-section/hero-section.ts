@@ -60,8 +60,6 @@ export class HeroSectionComponent implements OnInit {
     const title = this.languageService.getTranslation('home.title');
     const description = this.languageService.getTranslation('home.description');
     
-    this.title.setTitle(`${name} - ${title} | Digital Resume`);
-    
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ name: 'author', content: name });
     this.meta.updateTag({ property: 'og:title', content: `${name} - ${title}` });
