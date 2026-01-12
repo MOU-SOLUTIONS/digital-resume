@@ -782,8 +782,8 @@
         .experience-card {
           margin-left: 0 !important;
           margin-right: auto !important;
-          width: 900px !important;
-          max-width: 900px !important;
+          width: 800px !important;
+          max-width: 800px !important;
           flex-shrink: 0;
           
           &::after {
@@ -793,7 +793,7 @@
         
         .company-logo-wrapper {
           position: absolute;
-          left: calc(12% + 900px + var(--spacing-sm)) !important;
+          left: calc(12% + 800px) !important;
           right: auto;
         }
       }
