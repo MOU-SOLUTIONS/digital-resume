@@ -255,6 +255,20 @@ a:hover {
   }
 }
 
+.btn-tertiary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  
+  &:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
 .btn-outline {
   background: transparent;
   color: var(--text-accent);

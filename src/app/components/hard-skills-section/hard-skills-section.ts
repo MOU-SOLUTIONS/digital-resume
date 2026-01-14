@@ -95,22 +95,18 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
     return [
       {
         name: 'frontend',
-        icon: '🎨',
+        icon: '',
         highlight: true,
         skillKeys: [
           'skills.frontend.standalone',
-          'skills.frontend.guards',
           'skills.frontend.forms',
-          'skills.frontend.rxjs',
           'skills.frontend.detection',
-          'skills.frontend.lazy',
-          'skills.frontend.i18n',
-          'skills.frontend.accessibility'
+          'skills.frontend.i18n'
         ]
       },
       {
         name: 'backend',
-        icon: '⚙️',
+        icon: '',
         highlight: true,
         skillKeys: [
           'skills.backend.controllers',
@@ -123,9 +119,10 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'databases',
-        icon: '🗄️',
+        icon: '',
         skillKeys: [
           'skills.databases.mysql',
+          'skills.databases.postgresql',
           'skills.databases.indexing',
           'skills.databases.optimization',
           'skills.databases.migrations'
@@ -133,7 +130,7 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'architecture',
-        icon: '🏗️',
+        icon: '',
         skillKeys: [
           'skills.architecture.mvc',
           'skills.architecture.client',
@@ -144,7 +141,7 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'devops',
-        icon: '🚀',
+        icon: '',
         skillKeys: [
           'skills.devops.linux',
           'skills.devops.config',
@@ -154,29 +151,27 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'security',
-        icon: '🔒',
-        highlight: true,
+        icon: '',
         skillKeys: [
           'skills.security.cors',
-          'skills.security.csrf',
           'skills.security.auth',
-          'skills.security.hashing',
           'skills.security.owasp'
         ]
       },
       {
         name: 'testing',
-        icon: '🧪',
+        icon: '',
         skillKeys: [
           'skills.testing.unit',
           'skills.testing.integration',
           'skills.testing.debugging',
-          'skills.testing.reviews'
+          'skills.testing.reviews',
+          'skills.testing.refactoring'
         ]
       },
       {
         name: 'product',
-        icon: '✨',
+        icon: '',
         skillKeys: [
           'skills.product.ux',
           'skills.product.performance',
@@ -184,18 +179,8 @@ export class HardSkillsSectionComponent implements OnInit, OnDestroy {
         ]
       },
       {
-        name: 'professional',
-        icon: '💼',
-        skillKeys: [
-          'skills.professional.documentation',
-          'skills.professional.codebases',
-          'skills.professional.refactoring',
-          'skills.professional.production'
-        ]
-      },
-      {
         name: 'creative',
-        icon: '🎬',
+        icon: '',
         skillKeys: [
           'skills.creative.illustrator',
           'skills.creative.image',

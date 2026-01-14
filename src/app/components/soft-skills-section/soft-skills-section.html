@@ -49,14 +49,6 @@
            [style.animation-delay]="(i * 0.15) + 's'">
         <meta itemprop="position" [attr.content]="i + 1">
         <!-- ============================================================================ -->
-        <!-- Category Icon Badge -->
-        <!-- ============================================================================ -->
-        <div class="category-icon-wrapper">
-          <div class="category-icon" 
-               [attr.aria-label]="languageService.getTranslation(getCategoryTranslationKey(category))" 
-               [attr.aria-hidden]="'true'">{{ category.icon }}</div>
-        </div>
-        <!-- ============================================================================ -->
         <!-- Category Content -->
         <!-- ============================================================================ -->
         <div class="category-content">

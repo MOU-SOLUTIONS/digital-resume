@@ -18,11 +18,8 @@
     <div class="hero-content">
       <!-- Hero Text Content -->
       <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="hero-greeting" itemprop="name">
-          {{ languageService.getTranslation('home.greeting') }}
-          <span class="hero-name">{{ languageService.getTranslation('home.name') }}</span>
-        </h1>
-        <h2 class="hero-title" itemprop="jobTitle">{{ languageService.getTranslation('home.title') }}</h2>
+        <h1 class="hero-title" itemprop="jobTitle">{{ languageService.getTranslation('home.title') }}</h1>
+        <h2 class="hero-subtitle">{{ languageService.getTranslation('home.subtitle') }}</h2>
         <p class="hero-description" itemprop="description">{{ languageService.getTranslation('home.description') }}</p>
         
         <!-- Action Buttons -->
@@ -40,6 +37,13 @@
             (click)="downloadResume()"
             [attr.aria-label]="languageService.getTranslation('home.downloadCV')">
             {{ languageService.getTranslation('home.downloadCV') }}
+          </button>
+          <button 
+            type="button"
+            class="btn btn-secondary" 
+            (click)="scrollToSection('projects')"
+            [attr.aria-label]="languageService.getTranslation('home.viewProjects')">
+            {{ languageService.getTranslation('home.viewProjects') }}
           </button>
         </div>
       </div>
@@ -63,8 +67,8 @@
     
     <!-- Scroll Indicator -->
     <div class="scroll-indicator" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" aria-hidden="true">
-      <div class="scroll-arrow" aria-hidden="true">↓</div>
       <span class="scroll-text">{{ languageService.getTranslation('home.scrollToExplore') }}</span>
+      <div class="scroll-arrow">↓</div>
     </div>
   </div>
 </section>

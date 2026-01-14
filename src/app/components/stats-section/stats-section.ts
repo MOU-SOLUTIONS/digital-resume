@@ -38,10 +38,10 @@ export class StatsSectionComponent implements OnInit, OnDestroy {
   // Properties
   // ============================================================================
   readonly stats: StatItem[] = [
-    { number: '5+', key: 'stats.yearsExperience' },
-    { number: '50+', key: 'stats.projectsCompleted' },
-    { number: '20+', key: 'stats.happyClients' },
-    { number: '15+', key: 'stats.technologies' }
+    { number: '2+', key: 'stats.yearsExperience' },
+    { number: '4+', key: 'stats.projectsCompleted' },
+    { number: '10+', key: 'stats.technologies' },
+    { number: '1000+', key: 'stats.hours' }
   ];
 
   private readonly destroy$ = new Subject<void>();

@@ -116,13 +116,11 @@ export const RESUME_DATA = {
       isPresent: true,
       logo: 'assets/logos/aurax.png',
       description: [
-        'Working as a Full-Stack Developer delivering solutions for clients facing complex IT system, application, and infrastructure issues',
-        'Designing, developing, and maintaining web applications and internal tools to diagnose, fix, and optimize client systems',
-        'Contributing across the full stack, from front-end interfaces to back-end logic and integrations',
-        'Actively involved in troubleshooting, performance improvements, and system hardening to ensure reliability and scalability',
-        'Operating in a fast-paced environment requiring ownership, adaptability, and production-ready delivery'
+        'Developed and maintained full-stack web applications and internal tools to optimize client IT systems and applications',
+        'Delivered scalable solutions across front-end (Angular) and back-end (Spring Boot) interfaces, ensuring high reliability and performance',
+        'Troubleshot and resolved complex system issues, improving uptime and client satisfaction'
       ],
-      technologies: ['Full-Stack Development', 'System Fixes', 'Performance Optimization', 'Client Solutions']
+      technologies: ['Full-Stack Development', 'System Optimization', 'Client Solutions']
     },
     {
       id: 2,
@@ -134,11 +132,9 @@ export const RESUME_DATA = {
       isPresent: false,
       logo: 'assets/logos/polytel.png',
       description: [
-        'Contributed to the development and enhancement of Smart Roaster, a large-scale web application used to monitor and manage 300+ active sites across the UK',
-        'Worked on features related to site access control, gate code management, CCTV monitoring, and workforce data tracking',
-        'Implemented new functionalities and improved existing modules to enhance system reliability, usability, and operational visibility',
-        'Collaborated on a production system handling real-world infrastructure data, requiring high availability and accuracy',
-        'Participated in maintaining and evolving a platform critical to day-to-day operational decision-making'
+        'Enhanced Smart Roaster, a large-scale web application managing 300+ active sites nationwide',
+        'Implemented features for site access control, CCTV monitoring, and workforce data tracking, improving operational visibility',
+        'Collaborated on production-grade systems requiring high availability and accuracy'
       ],
       technologies: ['Site Monitoring Systems', 'Access Control', 'CCTV', 'Workforce Management']
     },
@@ -152,11 +148,9 @@ export const RESUME_DATA = {
       isPresent: false,
       logo: 'assets/logos/addixo.png',
       description: [
-        'Contributed to ADDIXO Smart Factory, an enterprise MOM/MES solution designed to digitize and optimize manufacturing processes',
-        'Worked on systems that aggregate real-time shop floor data from multiple sources to provide production KPIs, quality metrics, and operational visibility',
-        'Designed and implemented a new E-Kanban module, supporting lean "zero-paper" manufacturing workflows',
-        'Helped integrate production stakeholders, equipment, and information systems into a unified digital platform',
-        'Gained hands-on experience with industrial-scale applications, real-time data flows, and manufacturing process digitization'
+        'Developed modules for ADDIXO Smart Factory, an enterprise MOM/MES solution digitizing manufacturing processes',
+        'Designed and implemented an E-Kanban module supporting lean "zero-paper" workflows',
+        'Integrated production data from multiple sources to provide real-time KPIs and quality metrics'
       ],
       technologies: ['Angular', 'Spring Boot', 'MES/MOM', 'Smart Factory', 'Lean Manufacturing']
     },
@@ -170,12 +164,11 @@ export const RESUME_DATA = {
       isPresent: false,
       logo: 'assets/logos/atfp.png',
       description: [
-        'Designed and developed a desktop-based management application to digitize internship and intern administration, replacing manual paper-based processes',
-        'Centralized intern records, internship tracking, and archival data into a single digital system, improving data accessibility and organization',
-        'Implemented the application using HTML, CSS, JavaScript, and PHP, covering UI, business logic, and data handling',
-        'Delivered an end-to-end solution used internally, eliminating reliance on physical archives and reducing administrative overhead'
+        'Built a desktop application to digitize internship and intern administration, replacing manual paper processes',
+        'Centralized intern records and tracking, improving data accessibility and reducing administrative overhead',
+        'Implemented full-stack solution with HTML, CSS, JavaScript, and PHP'
       ],
-      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP']
+      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Desktop Application Development']
     }
   ],
 
@@ -217,17 +210,12 @@ export const RESUME_DATA = {
     {
       id: 1,
       title: 'E-Kanban Integration',
-      description: 'Developed and integrated the E-Kanban module at ADDIXO Group: defined requirements, wireframes and RESTful Spring Boot services; built Angular standalone components with reactive forms, data tables, modals and real-time charts.',
-      detailedDescription: 'A comprehensive Kanban board system integrated into ADDIXO Group\'s workflow management platform. This project involved full-stack development from requirements gathering to deployment, featuring real-time updates, drag-and-drop functionality, and advanced reporting capabilities.',
+      description: 'Developed and integrated E-Kanban module for enterprise Smart Factory platform.',
+      detailedDescription: 'Developed and integrated E-Kanban module for enterprise Smart Factory platform. Defined requirements, wireframes, RESTful Spring Boot services, and Angular components with reactive forms, data tables, modals, and real-time charts. Delivered production-ready module for lean "zero-paper" manufacturing workflows.',
       features: [
-        'Requirements analysis and wireframe design',
-        'RESTful Spring Boot backend services',
-        'Angular standalone components architecture',
-        'Reactive forms with validation',
-        'Interactive data tables with sorting/filtering',
-        'Modal dialogs for task management',
-        'Real-time charts and analytics',
-        'GitLab CI/CD pipeline integration'
+        'Developed and integrated E-Kanban module for enterprise Smart Factory platform',
+        'Defined requirements, wireframes, RESTful Spring Boot services, and Angular components with reactive forms, data tables, modals, and real-time charts',
+        'Delivered production-ready module for lean "zero-paper" manufacturing workflows'
       ],
       image: 'assets/Images/e-kanban.png',
       technologies: ['Java', 'Spring Boot', 'JPA/Hibernate', 'Angular', 'Swagger', 'GitLab CI/CD'],
@@ -237,16 +225,12 @@ export const RESUME_DATA = {
     {
       id: 2,
       title: 'Alpha Vault',
-      description: 'Lead full-stack developer of a personal finance platform: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL; crafting Angular standalone components for dashboards, charts and responsive UX.',
-      detailedDescription: 'A comprehensive personal finance management platform that helps users track, analyze, and optimize their financial health. Features include multi-account management, budget planning, investment tracking, and detailed financial analytics.',
+      description: 'Lead full-stack developer: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL.',
+      detailedDescription: 'Lead full-stack developer: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL. Built Angular standalone components for dashboards, charts, and responsive UX. Designed and deployed production-ready architecture supporting secure financial data management.',
       features: [
-        'Multi-module Spring Boot architecture',
-        'JWT-based authentication and authorization',
-        'PostgreSQL database with complex queries',
-        'Angular standalone component design',
-        'Interactive financial dashboards',
-        'Real-time charts and analytics',
-        'Responsive mobile-first design'
+        'Lead full-stack developer: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL',
+        'Built Angular standalone components for dashboards, charts, and responsive UX',
+        'Designed and deployed production-ready architecture supporting secure financial data management'
       ],
       image: 'assets/Images/alpha-vault.png',
       technologies: ['Java', 'Spring Boot', 'JWT', 'PostgreSQL', 'Angular', 'Chart.js'],
@@ -257,20 +241,14 @@ export const RESUME_DATA = {
     {
       id: 3,
       title: 'AuraCast',
-      description: 'A modern, high-performance weather intelligence platform built with Angular 20, designed to provide real-time meteorological data, interactive maps, and advanced atmospheric analytics with a sleek, responsive UI.',
-      detailedDescription: 'AuraCast is a comprehensive weather intelligence platform that delivers real-time meteorological data, interactive geospatial maps, and advanced atmospheric analytics. Built with Angular 20 and TypeScript 5.8, it features a modular architecture with multi-source weather API integration, interactive Leaflet.js maps, Chart.js analytics, and full internationalization support. The platform offers smart forecasts, air quality monitoring, and a responsive dashboard optimized for all devices.',
+      description: 'Built a high-performance, real-time weather analytics platform using Angular 20.',
+      detailedDescription: 'Built a high-performance, real-time weather analytics platform using Angular 20. Implemented interactive maps, charts, and advanced meteorological analytics with responsive UI.',
       features: [
-        'Real-time Weather Engine with live tracking of temperature, humidity, and atmospheric pressure',
-        'Interactive Geospatial Maps using Leaflet.js for visual weather tracking',
-        'Advanced Analytics with detailed category breakdowns and trends using Chart.js',
-        'Smart Forecasts with hourly and daily summaries, moon phase and sun-time indicators',
-        'Multi-Language Support with full localization (English, Spanish, French)',
-        'Air Quality Monitoring with dedicated metrics for environmental health tracking',
-        'Responsive Dashboard optimized for mobile, tablet, and desktop viewing',
-        'Modular UI architecture with Angular standalone components'
+        'Built a high-performance, real-time weather analytics platform using Angular 20',
+        'Implemented interactive maps, charts, and advanced meteorological analytics with responsive UI'
       ],
       image: 'assets/Images/auracast.png',
-      technologies: ['Angular', 'TypeScript', 'Vercel', 'RxJS', 'Chart.js', 'ng2-charts', 'Leaflet.js', 'SCSS', '@ngx-translate/core'],
+      technologies: ['Angular', 'TypeScript', 'RxJS', 'Chart.js', 'ng2-charts', 'Leaflet.js', 'SCSS', '@ngx-translate/core'],
       githubUrl: 'https://github.com/MOU-SOLUTIONS/auracast',
       liveUrl: 'https://auracast.aurax.global/',
       featured: true
@@ -278,17 +256,11 @@ export const RESUME_DATA = {
     {
       id: 4,
       title: 'AuraFX',
-      description: 'A high-performance forex analytics platform built with Angular, designed to provide real-time currency exchange rates, multi-currency conversion, historical data charts, and advanced market insights with a sleek, responsive UI.',
-      detailedDescription: 'AuraFX is a comprehensive forex analytics platform that delivers real-time currency exchange rates, multi-currency conversion capabilities, historical data visualization, and advanced market insights. Built with Angular 21 and TypeScript 5.9, it features standalone components with OnPush change detection, signal-based reactive state management, and a modular UI architecture. The platform includes interactive dashboards, currency converters, exchange rates tables, and advanced charting capabilities with technical indicators.',
+      description: 'Developed a real-time forex analytics platform providing multi-currency conversion, historical charts, and market insights.',
+      detailedDescription: 'Developed a real-time forex analytics platform providing multi-currency conversion, historical charts, and market insights. Built responsive UI components and integrated data visualization with Angular Material and Chart.js.',
       features: [
-        'Dashboard with market overview, top gainers/losers, and base currency selector',
-        'Currency Converter with single & multi-currency conversion and historical conversions',
-        'Exchange Rates Table with real-time rates, advanced filtering, sorting, and pagination',
-        'Currency Charts with historical line, bar, and area charts, multi-currency overlay',
-        'Technical indicators (MA, EMA) and chart export to PNG',
-        'Export functionality (CSV/JSON), print, and share capabilities',
-        'Language selector (EN, ES, FR) and theme toggle (Dark/Light)',
-        'Responsive design with active route highlighting and mobile menu'
+        'Developed a real-time forex analytics platform providing multi-currency conversion, historical charts, and market insights',
+        'Built responsive UI components and integrated data visualization with Angular Material and Chart.js'
       ],
       image: 'assets/Images/aurafx.png',
       technologies: ['Angular', 'TypeScript', 'Java', 'Angular Material', 'Chart.js', 'ng2-charts', 'RxJS', 'SCSS', '@ngx-translate/core', 'Vitest'],
@@ -311,7 +283,7 @@ export const RESUME_DATA = {
       endDate: '2025-12',
       isPresent: true,
       description: 'Elevated to architecting safe, scalable cloud and networking environments under real demands.',
-      gpa: '4.00 / 4.00',
+      gpa: '3.80 / 4.00',
       relevantCourses: [
         'Network Architecture & Protocols',
         'Cloud Infrastructure & DevSecOps',

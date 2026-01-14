@@ -56,7 +56,6 @@
         <!-- Category Header -->
         <!-- ============================================================================ -->
         <div class="category-header">
-          <div class="category-icon" [attr.aria-label]="category.name" [attr.aria-hidden]="'true'">{{ category.icon }}</div>
           <h3 class="category-title" itemprop="name">{{ languageService.getTranslation('skills.' + category.name.toLowerCase()) || category.name }}</h3>
         </div>
         

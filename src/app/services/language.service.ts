@@ -105,54 +105,66 @@ export class LanguageService {
       es: 'Mohamed Amine Dhaoui'
     },
     'home.title': {
-      en: 'Full Stack Developer',
+      en: 'Full-Stack Developer',
       fr: 'Développeur Full Stack',
       ar: 'مطور ويب شامل',
       es: 'Desarrollador Full Stack'
     },
+    'home.subtitle': {
+      en: 'Angular & Spring Boot | Master\'s in IT',
+      fr: 'Angular & Spring Boot | Master en Informatique',
+      ar: 'Angular & Spring Boot | ماجستير في تكنولوجيا المعلومات',
+      es: 'Angular & Spring Boot | Máster en TI'
+    },
     'home.description': {
-      en: 'Passionate about creating innovative web solutions and building scalable applications',
-      fr: 'Passionné par la création de solutions web innovantes et la construction d\'applications évolutives',
-      ar: 'شغوف بإنشاء حلول ويب مبتكرة وبناء تطبيقات قابلة للتطوير',
-      es: 'Apasionado por crear soluciones web innovadoras y construir aplicaciones escalables'
+      en: 'I design and build scalable, secure web applications with real-world project experience. Authorized to work in the U.S. under OPT with STEM OPT eligibility.',
+      fr: 'Je conçois et construis des applications web évolutives et sécurisées avec une expérience de projets réels. Autorisé à travailler aux États-Unis sous OPT avec éligibilité STEM OPT.',
+      ar: 'أصمم وأبني تطبيقات ويب قابلة للتطوير وآمنة مع خبرة في مشاريع حقيقية. مخول للعمل في الولايات المتحدة تحت OPT مع أهلية STEM OPT.',
+      es: 'Diseño y construyo aplicaciones web escalables y seguras con experiencia en proyectos del mundo real. Autorizado para trabajar en EE.UU. bajo OPT con elegibilidad STEM OPT.'
     },
     'home.cta': {
-      en: 'Contact',
-      fr: 'Contact',
-      ar: 'اتصل',
-      es: 'Contacto'
+      en: 'Contact Me',
+      fr: 'Me Contacter',
+      ar: 'اتصل بي',
+      es: 'Contáctame'
     },
     'home.downloadCV': {
-      en: '📄 Download CV',
-      fr: '📄 Télécharger CV',
-      ar: '📄 تحميل السيرة الذاتية',
-      es: '📄 Descargar CV'
+      en: 'Download Resume',
+      fr: 'Télécharger CV',
+      ar: 'تحميل السيرة الذاتية',
+      es: 'Descargar CV'
+    },
+    'home.viewProjects': {
+      en: 'View Projects',
+      fr: 'Voir Projets',
+      ar: 'عرض المشاريع',
+      es: 'Ver Proyectos'
     },
     'home.scrollToExplore': {
-      en: 'Scroll to explore',
-      fr: 'Faites défiler pour explorer',
-      ar: 'انتقل للاستكشاف',
-      es: 'Desplázate para explorar'
+      en: 'Scroll to explore my work',
+      fr: 'Faites défiler pour explorer mon travail',
+      ar: 'انتقل لاستكشاف أعمالي',
+      es: 'Desplázate para explorar mi trabajo'
     },
 
     // Stats Section
     'stats.title': {
-      en: 'Statistics',
-      fr: 'Statistiques',
-      ar: 'الإحصائيات',
-      es: 'Estadísticas'
+      en: 'Statistics / At a Glance',
+      fr: 'Statistiques / Aperçu',
+      ar: 'الإحصائيات / نظرة عامة',
+      es: 'Estadísticas / Resumen'
     },
     'stats.yearsExperience': {
-      en: 'Years Experience',
-      fr: 'Années d\'Expérience',
-      ar: 'سنوات من الخبرة',
-      es: 'Años de Experiencia'
+      en: 'Years — Professional & Academic Full-Stack Development Experience',
+      fr: 'Années — Expérience en Développement Full-Stack Professionnel & Académique',
+      ar: 'سنوات — خبرة في تطوير Full-Stack المهنية والأكاديمية',
+      es: 'Años — Experiencia en Desarrollo Full-Stack Profesional y Académico'
     },
     'stats.projectsCompleted': {
-      en: 'Projects Completed',
-      fr: 'Projets Terminés',
-      ar: 'المشاريع المكتملة',
-      es: 'Proyectos Completados'
+      en: 'Production-Ready Applications — Delivered real-world projects across multiple domains',
+      fr: 'Applications Prêtes pour la Production — Projets réels livrés dans plusieurs domaines',
+      ar: 'تطبيقات جاهزة للإنتاج — مشاريع حقيقية تم تسليمها عبر مجالات متعددة',
+      es: 'Aplicaciones Listas para Producción — Proyectos reales entregados en múltiples dominios'
     },
     'stats.happyClients': {
       en: 'Happy Clients',
@@ -161,10 +173,16 @@ export class LanguageService {
       es: 'Clientes Satisfechos'
     },
     'stats.technologies': {
-      en: 'Technologies',
-      fr: 'Technologies',
-      ar: 'التقنيات',
-      es: 'Tecnologías'
+      en: 'Core Technologies — Angular, Spring Boot, PostgreSQL, RxJS, Chart.js, etc.',
+      fr: 'Technologies Principales — Angular, Spring Boot, PostgreSQL, RxJS, Chart.js, etc.',
+      ar: 'التقنيات الأساسية — Angular، Spring Boot، PostgreSQL، RxJS، Chart.js، إلخ',
+      es: 'Tecnologías Principales — Angular, Spring Boot, PostgreSQL, RxJS, Chart.js, etc.'
+    },
+    'stats.hours': {
+      en: 'Hours — Hands-on coding, project development, and production work',
+      fr: 'Heures — Codage pratique, développement de projets et travail en production',
+      ar: 'ساعة — البرمجة العملية وتطوير المشاريع والعمل في الإنتاج',
+      es: 'Horas — Codificación práctica, desarrollo de proyectos y trabajo en producción'
     },
 
     // About Section
@@ -175,16 +193,16 @@ export class LanguageService {
       es: 'Sobre Mí'
     },
     'about.subtitle': {
-      en: '5 Years | Angular & Spring Boot | Leadership & Logic',
-      fr: '5 Ans | Angular & Spring Boot | Leadership & Logique',
-      ar: '5 سنوات | Angular & Spring Boot | القيادة والمنطق',
-      es: '5 Años | Angular & Spring Boot | Liderazgo y Lógica'
+      en: '2+ Years | Angular & Spring Boot | Leadership & Impact',
+      fr: '2+ Ans | Angular & Spring Boot | Leadership & Impact',
+      ar: '2+ سنوات | Angular & Spring Boot | القيادة والتأثير',
+      es: '2+ Años | Angular & Spring Boot | Liderazgo e Impacto'
     },
     'about.description': {
-      en: 'I am a Full Stack Developer driven by order, impact, and the art of problem-solving. Beyond the code, I am a facilitator and a leader with a deep history in the Red Crescent and Tunisian Scouts. I specialize in translating complex requirements into clean code and facilitating global collaboration through my fluency in 5 languages.',
-      fr: 'Je suis un développeur Full Stack motivé par l\'ordre, l\'impact et l\'art de la résolution de problèmes. Au-delà du code, je suis un facilitateur et un leader avec une histoire profonde dans le Croissant-Rouge et les Scouts Tunisiens. Je me spécialise dans la traduction de besoins complexes en code propre et facilite la collaboration mondiale grâce à ma maîtrise de 5 langues.',
-      ar: 'أنا مطور ويب شامل مدفوع بالنظام والتأثير وفن حل المشاكل. إلى جانب الكود، أنا ميسر وقائد مع تاريخ عميق في الهلال الأحمر والكشافة التونسية. أتخصص في ترجمة المتطلبات المعقدة إلى كود نظيف وتسهيل التعاون العالمي من خلال إتقاني لـ 5 لغات.',
-      es: 'Soy un desarrollador Full Stack impulsado por el orden, el impacto y el arte de resolver problemas. Más allá del código, soy un facilitador y líder con una historia profunda en la Media Luna Roja y los Scouts Tunecinos. Me especializo en traducir requisitos complejos en código limpio y facilitar la colaboración global a través de mi fluidez en 5 idiomas.'
+      en: 'Full-Stack Developer with 2+ years of experience building scalable web applications using Angular and Spring Boot. Authorized to work in the U.S. under OPT with STEM OPT eligibility.\n\nProven leader in technical projects and volunteer initiatives (Tunisian Red Crescent, Scouts), fluent in five languages, skilled in cross-cultural collaboration and problem-solving.',
+      fr: 'Développeur Full-Stack avec plus de 2 ans d\'expérience dans la construction d\'applications web évolutives utilisant Angular et Spring Boot. Autorisé à travailler aux États-Unis sous OPT avec éligibilité STEM OPT.\n\nLeader éprouvé dans des projets techniques et des initiatives bénévoles (Croissant-Rouge Tunisien, Scouts), parlant couramment cinq langues, compétent en collaboration interculturelle et résolution de problèmes.',
+      ar: 'مطور Full-Stack مع أكثر من عامين من الخبرة في بناء تطبيقات ويب قابلة للتطوير باستخدام Angular و Spring Boot. مصرح لي بالعمل في الولايات المتحدة بموجب OPT مع أهلية STEM OPT.\n\nقائد مثبت في المشاريع التقنية والمبادرات التطوعية (الهلال الأحمر التونسي، الكشافة)، أتقن خمس لغات، ماهر في التعاون بين الثقافات وحل المشكلات.',
+      es: 'Desarrollador Full-Stack con más de 2 años de experiencia construyendo aplicaciones web escalables usando Angular y Spring Boot. Autorizado para trabajar en EE. UU. bajo OPT con elegibilidad STEM OPT.\n\nLíder probado en proyectos técnicos e iniciativas voluntarias (Media Luna Roja Tunecina, Scouts), habla con fluidez cinco idiomas, hábil en colaboración intercultural y resolución de problemas.'
     },
     'about.philosophy': {
       en: 'My Philosophy: Organize the workflow, simplify the problem, and lead the team to excellence.',
@@ -599,10 +617,10 @@ export class LanguageService {
 
     // Skills Section
     'skills.title': {
-      en: 'Hard Skills & Expertise',
-      fr: 'Compétences Techniques & Expertise',
-      ar: 'المهارات الصعبة والخبرة',
-      es: 'Habilidades Técnicas y Experiencia'
+      en: 'Core Technical Skills & Expertise',
+      fr: 'Compétences Techniques Essentielles & Expertise',
+      ar: 'المهارات التقنية الأساسية والخبرة',
+      es: 'Habilidades Técnicas Fundamentales y Experiencia'
     },
     'skills.subtitle': {
       en: 'Core technical competencies and professional expertise',
@@ -611,16 +629,16 @@ export class LanguageService {
       es: 'Competencias técnicas fundamentales y experiencia profesional'
     },
     'skills.frontend': {
-      en: 'Angular / Frontend',
-      fr: 'Angular / Frontend',
-      ar: 'Angular / الواجهة الأمامية',
-      es: 'Angular / Frontend'
+      en: 'Front-End / Angular',
+      fr: 'Front-End / Angular',
+      ar: 'الواجهة الأمامية / Angular',
+      es: 'Front-End / Angular'
     },
     'skills.backend': {
-      en: 'Backend / Spring Boot',
-      fr: 'Backend / Spring Boot',
+      en: 'Back-End / Spring Boot',
+      fr: 'Back-End / Spring Boot',
       ar: 'الخلفية / Spring Boot',
-      es: 'Backend / Spring Boot'
+      es: 'Back-End / Spring Boot'
     },
     'skills.databases': {
       en: 'Databases',
@@ -629,10 +647,10 @@ export class LanguageService {
       es: 'Bases de Datos'
     },
     'skills.architecture': {
-      en: 'System & Architecture',
-      fr: 'Système & Architecture',
-      ar: 'النظام والهندسة المعمارية',
-      es: 'Sistema y Arquitectura'
+      en: 'Architecture & Systems',
+      fr: 'Architecture & Systèmes',
+      ar: 'الهندسة المعمارية والأنظمة',
+      es: 'Arquitectura y Sistemas'
     },
     'skills.devops': {
       en: 'DevOps & Production',
@@ -653,10 +671,10 @@ export class LanguageService {
       es: 'Pruebas y Calidad'
     },
     'skills.product': {
-      en: 'Product & UX',
-      fr: 'Produit & UX',
-      ar: 'المنتج وتجربة المستخدم',
-      es: 'Producto y UX'
+      en: 'UX & Product',
+      fr: 'UX & Produit',
+      ar: 'UX والمنتج',
+      es: 'UX y Producto'
     },
     'skills.professional': {
       en: 'Professional Skills',
@@ -672,52 +690,28 @@ export class LanguageService {
     },
     // Frontend Skills
     'skills.frontend.standalone': {
-      en: 'Angular Standalone Components',
-      fr: 'Composants Angular Autonomes',
-      ar: 'مكونات Angular المستقلة',
-      es: 'Componentes Angular Independientes'
-    },
-    'skills.frontend.guards': {
-      en: 'Angular Guards & Interceptors',
-      fr: 'Guards et Intercepteurs Angular',
-      ar: 'Guards و Interceptors في Angular',
-      es: 'Guards e Interceptores Angular'
+      en: 'Angular Standalone Components, Guards & Interceptors',
+      fr: 'Composants Angular Autonomes, Guards et Intercepteurs',
+      ar: 'مكونات Angular المستقلة، Guards و Interceptors',
+      es: 'Componentes Angular Independientes, Guards e Interceptores'
     },
     'skills.frontend.forms': {
-      en: 'Reactive Forms',
-      fr: 'Formulaires Réactifs',
-      ar: 'النماذج التفاعلية',
-      es: 'Formularios Reactivos'
-    },
-    'skills.frontend.rxjs': {
-      en: 'RxJS (Observables, Operators basics)',
-      fr: 'RxJS (Observables, Opérateurs de base)',
-      ar: 'RxJS (Observables، أساسيات المشغلين)',
-      es: 'RxJS (Observables, Operadores básicos)'
+      en: 'Reactive Forms, RxJS (Observables, Operators)',
+      fr: 'Formulaires Réactifs, RxJS (Observables, Opérateurs)',
+      ar: 'النماذج التفاعلية، RxJS (Observables، المشغلين)',
+      es: 'Formularios Reactivos, RxJS (Observables, Operadores)'
     },
     'skills.frontend.detection': {
-      en: 'Change Detection (OnPush)',
-      fr: 'Détection de Changement (OnPush)',
-      ar: 'اكتشاف التغيير (OnPush)',
-      es: 'Detección de Cambios (OnPush)'
-    },
-    'skills.frontend.lazy': {
-      en: 'Lazy Loading Modules',
-      fr: 'Modules de Chargement Différé',
-      ar: 'وحدات التحميل المؤجل',
-      es: 'Módulos de Carga Diferida'
+      en: 'Change Detection (OnPush), Lazy Loading Modules',
+      fr: 'Détection de Changement (OnPush), Modules de Chargement Différé',
+      ar: 'اكتشاف التغيير (OnPush)، وحدات التحميل المؤجل',
+      es: 'Detección de Cambios (OnPush), Módulos de Carga Diferida'
     },
     'skills.frontend.i18n': {
-      en: 'Internationalization (i18n)',
-      fr: 'Internationalisation (i18n)',
-      ar: 'التدويل (i18n)',
-      es: 'Internacionalización (i18n)'
-    },
-    'skills.frontend.accessibility': {
-      en: 'Accessibility (ARIA basics)',
-      fr: 'Accessibilité (Bases ARIA)',
-      ar: 'إمكانية الوصول (أساسيات ARIA)',
-      es: 'Accesibilidad (Básicos ARIA)'
+      en: 'Internationalization (i18n), Accessibility (ARIA basics)',
+      fr: 'Internationalisation (i18n), Accessibilité (Bases ARIA)',
+      ar: 'التدويل (i18n)، إمكانية الوصول (أساسيات ARIA)',
+      es: 'Internacionalización (i18n), Accesibilidad (Básicos ARIA)'
     },
     // Backend Skills
     'skills.backend.controllers': {
@@ -745,41 +739,47 @@ export class LanguageService {
       es: 'DTOs y Validación'
     },
     'skills.backend.security': {
-      en: 'Basic Security Concepts (JWT, roles)',
-      fr: 'Concepts de Sécurité de Base (JWT, rôles)',
-      ar: 'مفاهيم الأمان الأساسية (JWT، الأدوار)',
-      es: 'Conceptos Básicos de Seguridad (JWT, roles)'
+      en: 'Security Concepts (JWT, Roles)',
+      fr: 'Concepts de Sécurité (JWT, Rôles)',
+      ar: 'مفاهيم الأمان (JWT، الأدوار)',
+      es: 'Conceptos de Seguridad (JWT, Roles)'
     },
     'skills.backend.config': {
-      en: 'Application Configuration (profiles)',
-      fr: 'Configuration d\'Application (profils)',
+      en: 'Application Configuration (Profiles)',
+      fr: 'Configuration d\'Application (Profils)',
       ar: 'تكوين التطبيق (الملفات الشخصية)',
-      es: 'Configuración de Aplicación (perfiles)'
+      es: 'Configuración de Aplicación (Perfiles)'
     },
     // Database Skills
     'skills.databases.mysql': {
-      en: 'MySQL / PostgreSQL',
-      fr: 'MySQL / PostgreSQL',
-      ar: 'MySQL / PostgreSQL',
-      es: 'MySQL / PostgreSQL'
+      en: 'MySQL',
+      fr: 'MySQL',
+      ar: 'MySQL',
+      es: 'MySQL'
+    },
+    'skills.databases.postgresql': {
+      en: 'PostgreSQL',
+      fr: 'PostgreSQL',
+      ar: 'PostgreSQL',
+      es: 'PostgreSQL'
     },
     'skills.databases.indexing': {
-      en: 'Indexing basics',
-      fr: 'Bases de l\'Indexation',
-      ar: 'أساسيات الفهرسة',
-      es: 'Básicos de Indexación'
+      en: 'Indexing & Basic Query Optimization',
+      fr: 'Indexation et Optimisation de Requêtes de Base',
+      ar: 'الفهرسة وتحسين الاستعلامات الأساسي',
+      es: 'Indexación y Optimización Básica de Consultas'
     },
     'skills.databases.optimization': {
-      en: 'Query Optimization (basic)',
-      fr: 'Optimisation de Requêtes (de base)',
-      ar: 'تحسين الاستعلامات (أساسي)',
-      es: 'Optimización de Consultas (básico)'
+      en: 'Indexing & Basic Query Optimization',
+      fr: 'Indexation et Optimisation de Requêtes de Base',
+      ar: 'الفهرسة وتحسين الاستعلامات الأساسي',
+      es: 'Indexación y Optimización Básica de Consultas'
     },
     'skills.databases.migrations': {
-      en: 'Database Migrations (Flyway / Liquibase – exposure)',
-      fr: 'Migrations de Base de Données (Flyway / Liquibase – exposition)',
-      ar: 'هجرات قاعدة البيانات (Flyway / Liquibase – تعرض)',
-      es: 'Migraciones de Base de Datos (Flyway / Liquibase – exposición)'
+      en: 'Database Migrations (Flyway / Liquibase exposure)',
+      fr: 'Migrations de Base de Données (exposition Flyway / Liquibase)',
+      ar: 'هجرات قاعدة البيانات (تعرض Flyway / Liquibase)',
+      es: 'Migraciones de Base de Datos (exposición Flyway / Liquibase)'
     },
     // Architecture Skills
     'skills.architecture.mvc': {
@@ -826,10 +826,10 @@ export class LanguageService {
       es: 'Configuración basada en entorno'
     },
     'skills.devops.pipelines': {
-      en: 'Build & deployment pipelines (basic CI/CD exposure)',
-      fr: 'Pipelines de Build et Déploiement (exposition CI/CD de base)',
-      ar: 'خطوط أنابيب البناء والنشر (تعرض CI/CD أساسي)',
-      es: 'Pipelines de Build y Despliegue (exposición CI/CD básica)'
+      en: 'Build & Deployment Pipelines (CI/CD exposure)',
+      fr: 'Pipelines de Build et Déploiement (exposition CI/CD)',
+      ar: 'خطوط أنابيب البناء والنشر (تعرض CI/CD)',
+      es: 'Pipelines de Build y Despliegue (exposición CI/CD)'
     },
     'skills.devops.debugging': {
       en: 'Production debugging & log analysis',
@@ -839,28 +839,28 @@ export class LanguageService {
     },
     // Security Skills
     'skills.security.cors': {
-      en: 'CORS concepts',
-      fr: 'Concepts CORS',
-      ar: 'مفاهيم CORS',
-      es: 'Conceptos CORS'
+      en: 'CORS & CSRF awareness',
+      fr: 'Conscience CORS & CSRF',
+      ar: 'الوعي بـ CORS و CSRF',
+      es: 'Conciencia CORS y CSRF'
     },
     'skills.security.csrf': {
-      en: 'CSRF awareness',
-      fr: 'Conscience CSRF',
-      ar: 'الوعي بـ CSRF',
-      es: 'Conciencia CSRF'
+      en: 'CORS & CSRF awareness',
+      fr: 'Conscience CORS & CSRF',
+      ar: 'الوعي بـ CORS و CSRF',
+      es: 'Conciencia CORS y CSRF'
     },
     'skills.security.auth': {
-      en: 'Secure authentication flows',
-      fr: 'Flux d\'Authentification Sécurisés',
-      ar: 'تدفقات المصادقة الآمنة',
-      es: 'Flujos de Autenticación Seguros'
+      en: 'Secure authentication flows, password hashing concepts',
+      fr: 'Flux d\'Authentification Sécurisés, concepts de hachage de mots de passe',
+      ar: 'تدفقات المصادقة الآمنة، مفاهيم تجزئة كلمات المرور',
+      es: 'Flujos de autenticación seguros, conceptos de hash de contraseñas'
     },
     'skills.security.hashing': {
-      en: 'Password hashing concepts',
-      fr: 'Concepts de Hachage de Mots de Passe',
-      ar: 'مفاهيم تجزئة كلمات المرور',
-      es: 'Conceptos de Hash de Contraseñas'
+      en: 'Secure authentication flows, password hashing concepts',
+      fr: 'Flux d\'Authentification Sécurisés, concepts de hachage de mots de passe',
+      ar: 'تدفقات المصادقة الآمنة، مفاهيم تجزئة كلمات المرور',
+      es: 'Flujos de autenticación seguros, conceptos de hash de contraseñas'
     },
     'skills.security.owasp': {
       en: 'OWASP Top 10 awareness',
@@ -870,10 +870,10 @@ export class LanguageService {
     },
     // Testing Skills
     'skills.testing.unit': {
-      en: 'Unit Testing basics',
-      fr: 'Bases des Tests Unitaires',
-      ar: 'أساسيات اختبار الوحدة',
-      es: 'Básicos de Pruebas Unitarias'
+      en: 'Unit Testing',
+      fr: 'Tests Unitaires',
+      ar: 'اختبار الوحدة',
+      es: 'Pruebas Unitarias'
     },
     'skills.testing.integration': {
       en: 'Integration Testing awareness',
@@ -892,6 +892,12 @@ export class LanguageService {
       fr: 'Revues de Code',
       ar: 'مراجعات الكود',
       es: 'Revisiones de Código'
+    },
+    'skills.testing.refactoring': {
+      en: 'Refactoring legacy systems',
+      fr: 'Refactorisation de Systèmes Hérités',
+      ar: 'إعادة هيكلة الأنظمة القديمة',
+      es: 'Refactorización de Sistemas Legacy'
     },
     // Product Skills
     'skills.product.ux': {
@@ -958,24 +964,24 @@ export class LanguageService {
     },
     'skills.creative.animation': {
       en: 'Cartoon Animator / Motion Graphics',
-      fr: 'Animateur de Dessins Animés / Graphismes Animés',
-      ar: 'محرك الرسوم المتحركة / الرسوم المتحركة',
-      es: 'Animador de Caricaturas / Gráficos en Movimiento'
+      fr: 'Cartoon Animator / Graphismes Animés',
+      ar: 'Cartoon Animator / الرسوم المتحركة',
+      es: 'Cartoon Animator / Gráficos en Movimiento'
     },
 
     // Projects Section
     // Soft Skills Section
     'softSkills.title': {
-      en: 'Soft Skills & Leadership',
-      fr: 'Compétences Douces & Leadership',
-      ar: 'المهارات الناعمة والقيادة',
-      es: 'Habilidades Blandas y Liderazgo'
+      en: 'Leadership, Communication & Professional Competencies',
+      fr: 'Leadership, Communication & Compétences Professionnelles',
+      ar: 'القيادة والتواصل والكفاءات المهنية',
+      es: 'Liderazgo, Comunicación y Competencias Profesionales'
     },
     'softSkills.subtitle': {
-      en: 'Interpersonal skills, leadership abilities, and professional competencies',
-      fr: 'Compétences interpersonnelles, capacités de leadership et compétences professionnelles',
-      ar: 'المهارات الشخصية وقدرات القيادة والكفاءات المهنية',
-      es: 'Habilidades interpersonales, capacidades de liderazgo y competencias profesionales'
+      en: '',
+      fr: '',
+      ar: '',
+      es: ''
     },
     'softSkills.leadership': {
       en: 'Leadership & Responsibility',
@@ -984,22 +990,22 @@ export class LanguageService {
       es: 'Liderazgo y Responsabilidad'
     },
     'softSkills.leadership.teamLeadership': {
-      en: 'Team leadership and coordination in technical and volunteer environments',
-      fr: 'Leadership d\'équipe et coordination dans des environnements techniques et bénévoles',
-      ar: 'قيادة الفريق والتنسيق في البيئات التقنية والتطوعية',
-      es: 'Liderazgo de equipo y coordinación en entornos técnicos y voluntarios'
+      en: 'Led diverse teams in technical and volunteer projects, coordinating tasks and delivering results on time',
+      fr: 'Dirigé des équipes diversifiées dans des projets techniques et bénévoles, coordonné les tâches et livré des résultats dans les délais',
+      ar: 'قادت فرق متنوعة في المشاريع التقنية والتطوعية، وتنسيق المهام وتسليم النتائج في الوقت المحدد',
+      es: 'Lideré equipos diversos en proyectos técnicos y voluntarios, coordinando tareas y entregando resultados a tiempo'
     },
     'softSkills.leadership.decisionMaking': {
-      en: 'Decision-making under pressure and accountability for outcomes',
-      fr: 'Prise de décision sous pression et responsabilité des résultats',
-      ar: 'اتخاذ القرارات تحت الضغط والمساءلة عن النتائج',
-      es: 'Toma de decisiones bajo presión y responsabilidad por los resultados'
+      en: 'Made decisions under pressure and assumed accountability for outcomes',
+      fr: 'Pris des décisions sous pression et assumé la responsabilité des résultats',
+      ar: 'اتخذت قرارات تحت الضغط وتحملت المسؤولية عن النتائج',
+      es: 'Tomé decisiones bajo presión y asumí la responsabilidad de los resultados'
     },
     'softSkills.leadership.diverseTeams': {
-      en: 'Experience leading diverse teams with varying skill levels',
-      fr: 'Expérience dans la direction d\'équipes diversifiées avec des niveaux de compétences variés',
-      ar: 'خبرة في قيادة فرق متنوعة بمستويات مهارات مختلفة',
-      es: 'Experiencia liderando equipos diversos con diferentes niveles de habilidades'
+      en: 'Mentored junior developers and team members, supporting skill growth and knowledge transfer',
+      fr: 'Mentoré des développeurs juniors et des membres d\'équipe, soutenu la croissance des compétences et le transfert de connaissances',
+      ar: 'أرشدت المطورين المبتدئين وأعضاء الفريق، ودعمت نمو المهارات ونقل المعرفة',
+      es: 'Mentoricé desarrolladores junior y miembros del equipo, apoyando el crecimiento de habilidades y la transferencia de conocimientos'
     },
     'softSkills.communication': {
       en: 'Communication & Collaboration',
@@ -1008,94 +1014,70 @@ export class LanguageService {
       es: 'Comunicación y Colaboración'
     },
     'softSkills.communication.clearCommunication': {
-      en: 'Clear communication with technical and non-technical stakeholders',
-      fr: 'Communication claire avec les parties prenantes techniques et non techniques',
-      ar: 'تواصل واضح مع أصحاب المصلحة التقنيين وغير التقنيين',
-      es: 'Comunicación clara con partes interesadas técnicas y no técnicas'
+      en: 'Effectively communicated complex technical concepts to non-technical stakeholders',
+      fr: 'Communiqué efficacement des concepts techniques complexes aux parties prenantes non techniques',
+      ar: 'تواصلت بفعالية مع المفاهيم التقنية المعقدة لأصحاب المصلحة غير التقنيين',
+      es: 'Comuniqué efectivamente conceptos técnicos complejos a partes interesadas no técnicas'
     },
     'softSkills.communication.technicalTranslation': {
-      en: 'Translating complex technical concepts into understandable language',
-      fr: 'Traduction de concepts techniques complexes en langage compréhensible',
-      ar: 'ترجمة المفاهيم التقنية المعقدة إلى لغة مفهومة',
-      es: 'Traducir conceptos técnicos complejos a un lenguaje comprensible'
+      en: 'Collaborated in cross-cultural, multilingual environments',
+      fr: 'Collaboré dans des environnements interculturels et multilingues',
+      ar: 'تعاونت في بيئات متعددة الثقافات واللغات',
+      es: 'Colaboré en entornos interculturales y multilingües'
     },
     'softSkills.communication.crossCultural': {
-      en: 'Cross-cultural and multilingual collaboration',
-      fr: 'Collaboration interculturelle et multilingue',
-      ar: 'التعاون بين الثقافات ومتعدد اللغات',
-      es: 'Colaboración intercultural y multilingüe'
+      en: 'Facilitated structured discussions and team meetings to drive project alignment',
+      fr: 'Facilité des discussions structurées et des réunions d\'équipe pour favoriser l\'alignement des projets',
+      ar: 'سهلت المناقشات المنظمة واجتماعات الفريق لدفع محاذاة المشروع',
+      es: 'Facilitado discusiones estructuradas y reuniones de equipo para impulsar la alineación del proyecto'
     },
     'softSkills.dialogue': {
-      en: 'Dialogue & Conflict Resolution',
-      fr: 'Dialogue & Résolution de Conflits',
-      ar: 'الحوار وحل النزاعات',
-      es: 'Diálogo y Resolución de Conflictos'
+      en: 'Conflict Resolution & Problem-Solving',
+      fr: 'Résolution de Conflits & Résolution de Problèmes',
+      ar: 'حل النزاعات وحل المشكلات',
+      es: 'Resolución de Conflictos y Resolución de Problemas'
     },
     'softSkills.dialogue.facilitation': {
-      en: 'Dialogue facilitation and mediation',
-      fr: 'Facilitation du dialogue et médiation',
-      ar: 'تسهيل الحوار والوساطة',
-      es: 'Facilitación del diálogo y mediación'
+      en: 'Mediated conflicts and built consensus in team and project settings',
+      fr: 'Médié des conflits et construit un consensus dans les contextes d\'équipe et de projet',
+      ar: 'وسطت في النزاعات وبنيت إجماعاً في إعدادات الفريق والمشروع',
+      es: 'Medié conflictos y construí consenso en entornos de equipo y proyecto'
     },
     'softSkills.dialogue.conflictResolution': {
-      en: 'Conflict resolution and consensus building',
-      fr: 'Résolution de conflits et construction de consensus',
-      ar: 'حل النزاعات وبناء الإجماع',
-      es: 'Resolución de conflictos y construcción de consenso'
+      en: 'Practiced active listening to ensure understanding and resolution of issues',
+      fr: 'Pratiqué l\'écoute active pour assurer la compréhension et la résolution des problèmes',
+      ar: 'مارست الاستماع النشط لضمان الفهم وحل المشكلات',
+      es: 'Practiqué la escucha activa para asegurar la comprensión y resolución de problemas'
     },
     'softSkills.dialogue.activeListening': {
-      en: 'Active listening and structured discussion moderation',
-      fr: 'Écoute active et modération de discussions structurées',
-      ar: 'الاستماع النشط وتنظيم المناقشات المنظمة',
-      es: 'Escucha activa y moderación de discusiones estructuradas'
-    },
-    'softSkills.crisis': {
-      en: 'Crisis & Operational Skills',
-      fr: 'Compétences de Crise & Opérationnelles',
-      ar: 'مهارات الأزمات والتشغيلية',
-      es: 'Habilidades de Crisis y Operacionales'
-    },
-    'softSkills.crisis.management': {
-      en: 'Crisis management and rapid prioritization',
-      fr: 'Gestion de crise et priorisation rapide',
-      ar: 'إدارة الأزمات والأولوية السريعة',
-      es: 'Gestión de crisis y priorización rápida'
-    },
-    'softSkills.crisis.firstAid': {
-      en: 'Certified first aid and emergency response',
-      fr: 'Premiers secours certifiés et intervention d\'urgence',
-      ar: 'الإسعافات الأولية المعتمدة والاستجابة للطوارئ',
-      es: 'Primeros auxilios certificados y respuesta de emergencia'
-    },
-    'softSkills.crisis.stressManagement': {
-      en: 'Stress management in high-pressure situations',
-      fr: 'Gestion du stress dans des situations de forte pression',
-      ar: 'إدارة الإجهاد في المواقف عالية الضغط',
-      es: 'Gestión del estrés en situaciones de alta presión'
+      en: '',
+      fr: '',
+      ar: '',
+      es: ''
     },
     'softSkills.execution': {
-      en: 'Execution & Professional Discipline',
-      fr: 'Exécution & Discipline Professionnelle',
-      ar: 'التنفيذ والانضباط المهني',
-      es: 'Ejecución y Disciplina Profesional'
+      en: 'Operational & Execution Skills',
+      fr: 'Compétences Opérationnelles & d\'Exécution',
+      ar: 'المهارات التشغيلية والتنفيذية',
+      es: 'Habilidades Operacionales y de Ejecución'
     },
     'softSkills.execution.timeManagement': {
-      en: 'Time management and task prioritization',
-      fr: 'Gestion du temps et priorisation des tâches',
-      ar: 'إدارة الوقت وأولوية المهام',
-      es: 'Gestión del tiempo y priorización de tareas'
+      en: 'Managed time and prioritized tasks in fast-paced, production-focused environments',
+      fr: 'Géré le temps et priorisé les tâches dans des environnements rapides axés sur la production',
+      ar: 'أدارت الوقت وأولت المهام في بيئات سريعة الخطى تركز على الإنتاج',
+      es: 'Gestioné el tiempo y prioricé tareas en entornos rápidos centrados en la producción'
     },
     'softSkills.execution.adaptability': {
-      en: 'Adaptability in fast-paced and changing environments',
-      fr: 'Adaptabilité dans des environnements rapides et changeants',
-      ar: 'القدرة على التكيف في البيئات سريعة الخطى والمتغيرة',
-      es: 'Adaptabilidad en entornos rápidos y cambiantes'
+      en: 'Adapted to changing requirements while maintaining high-quality output',
+      fr: 'Adapté aux exigences changeantes tout en maintenant une production de haute qualité',
+      ar: 'تكيفت مع المتطلبات المتغيرة مع الحفاظ على إنتاج عالي الجودة',
+      es: 'Adaptado a requisitos cambiantes mientras se mantiene una salida de alta calidad'
     },
     'softSkills.execution.productionConstraints': {
-      en: 'Working under real production and operational constraints',
-      fr: 'Travail sous contraintes de production et opérationnelles réelles',
-      ar: 'العمل تحت قيود الإنتاج والتشغيل الحقيقية',
-      es: 'Trabajar bajo restricciones reales de producción y operacionales'
+      en: 'Applied crisis management techniques to maintain project continuity',
+      fr: 'Appliqué des techniques de gestion de crise pour maintenir la continuité du projet',
+      ar: 'طبقت تقنيات إدارة الأزمات للحفاظ على استمرارية المشروع',
+      es: 'Aplicado técnicas de gestión de crisis para mantener la continuidad del proyecto'
     },
     'softSkills.ethics': {
       en: 'Ethics & Community Leadership',
@@ -1103,23 +1085,17 @@ export class LanguageService {
       ar: 'الأخلاق والقيادة المجتمعية',
       es: 'Ética y Liderazgo Comunitario'
     },
-    'softSkills.ethics.professionalEthics': {
-      en: 'Strong sense of professional ethics and responsibility',
-      fr: 'Fort sens de l\'éthique professionnelle et de la responsabilité',
-      ar: 'إحساس قوي بالأخلاق المهنية والمسؤولية',
-      es: 'Fuerte sentido de ética profesional y responsabilidad'
-    },
     'softSkills.ethics.humanitarian': {
-      en: 'Humanitarian leadership experience (Tunisian Red Crescent)',
-      fr: 'Expérience de leadership humanitaire (Croissant-Rouge Tunisien)',
-      ar: 'خبرة في القيادة الإنسانية (الهلال الأحمر التونسي)',
-      es: 'Experiencia en liderazgo humanitario (Media Luna Roja Tunecina)'
+      en: 'Led humanitarian initiatives with Tunisian Red Crescent, coordinating volunteers and community programs',
+      fr: 'Dirigé des initiatives humanitaires avec le Croissant-Rouge Tunisien, coordonné des bénévoles et des programmes communautaires',
+      ar: 'قادت المبادرات الإنسانية مع الهلال الأحمر التونسي، وتنسيق المتطوعين والبرامج المجتمعية',
+      es: 'Lideré iniciativas humanitarias con la Media Luna Roja Tunecina, coordinando voluntarios y programas comunitarios'
     },
     'softSkills.ethics.youthLeadership': {
-      en: 'Youth leadership and mentoring (Scout leadership roles)',
-      fr: 'Leadership des jeunes et mentorat (rôles de leadership scout)',
-      ar: 'قيادة الشباب والإرشاد (أدوار القيادة الكشفية)',
-      es: 'Liderazgo juvenil y mentoría (roles de liderazgo scout)'
+      en: 'Mentored youth in Scout leadership roles, promoting teamwork and personal development',
+      fr: 'Mentoré des jeunes dans des rôles de leadership scout, promu le travail d\'équipe et le développement personnel',
+      ar: 'أرشدت الشباب في أدوار القيادة الكشفية، وتعزيز العمل الجماعي والتطوير الشخصي',
+      es: 'Mentoricé jóvenes en roles de liderazgo scout, promoviendo el trabajo en equipo y el desarrollo personal'
     },
     'softSkills.category': {
       en: 'skill category',
@@ -1310,10 +1286,10 @@ export class LanguageService {
       es: 'Tarjeta del Proyecto Principal'
     },
     'projects.masterSubtitle': {
-      en: 'Flagship Personal Finance Platform',
-      fr: 'Plateforme de Finance Personnelle Phare',
-      ar: 'منصة التمويل الشخصي الرائدة',
-      es: 'Plataforma de Finanzas Personales Principal'
+      en: 'Personal Finance Platform',
+      fr: 'Plateforme de Finance Personnelle',
+      ar: 'منصة التمويل الشخصي',
+      es: 'Plataforma de Finanzas Personales'
     },
     'projects.otherProjects': {
       en: 'Other Projects',
@@ -1376,10 +1352,10 @@ export class LanguageService {
       es: 'Integración E-Kanban'
     },
     'projects.ekanban.description': {
-      en: 'Developed and integrated the E-Kanban module at ADDIXO Group: defined requirements, wireframes and RESTful Spring Boot services; built Angular standalone components with reactive forms, data tables, modals and real-time charts.',
-      fr: 'Développé et intégré le module E-Kanban chez ADDIXO Group : défini les exigences, les maquettes et les services RESTful Spring Boot ; construit des composants Angular autonomes avec des formulaires réactifs, des tableaux de données, des modales et des graphiques en temps réel.',
-      ar: 'طورت ودمجت وحدة إي-كانبان في مجموعة أديكسو: حددت المتطلبات والرسوم البيانية وخدمات سبرينج بوت RESTful؛ بنيت مكونات أنجولار مستقلة مع نماذج تفاعلية وجداول بيانات ونوافذ منبثقة ورسوم بيانية في الوقت الفعلي.',
-      es: 'Desarrollé e integré el módulo E-Kanban en ADDIXO Group: definí requisitos, wireframes y servicios RESTful Spring Boot; construí componentes Angular independientes con formularios reactivos, tablas de datos, modales y gráficos en tiempo real.'
+      en: 'Developed and integrated E-Kanban module for enterprise Smart Factory platform. Defined requirements, wireframes, RESTful Spring Boot services, and Angular components with reactive forms, data tables, modals, and real-time charts. Delivered production-ready module for lean "zero-paper" manufacturing workflows.',
+      fr: 'Développé et intégré le module E-Kanban pour la plateforme Smart Factory d\'entreprise. Défini les exigences, les maquettes, les services RESTful Spring Boot et les composants Angular avec formulaires réactifs, tableaux de données, modales et graphiques en temps réel. Livré un module prêt pour la production pour des flux de travail de fabrication lean "zéro papier".',
+      ar: 'طورت ودمجت وحدة إي-كانبان لمنصة Smart Factory المؤسسية. حددت المتطلبات والرسوم البيانية وخدمات RESTful Spring Boot ومكونات Angular مع النماذج التفاعلية وجداول البيانات والنوافذ المنبثقة والرسوم البيانية في الوقت الفعلي. تم تسليم وحدة جاهزة للإنتاج لتدفقات عمل التصنيع الرشيق "صفر ورق".',
+      es: 'Desarrollé e integré el módulo E-Kanban para la plataforma Smart Factory empresarial. Definí requisitos, wireframes, servicios RESTful Spring Boot y componentes Angular con formularios reactivos, tablas de datos, modales y gráficos en tiempo real. Entregué un módulo listo para producción para flujos de trabajo de fabricación lean "cero papel".'
     },
     'projects.alphavault.title': {
       en: 'Alpha Vault',
@@ -1388,10 +1364,10 @@ export class LanguageService {
       es: 'Alpha Vault'
     },
     'projects.alphavault.description': {
-      en: 'Lead full-stack developer of a personal finance platform: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL; crafting Angular standalone components for dashboards, charts and responsive UX.',
-      fr: 'Développeur full-stack principal d\'une plateforme de finance personnelle : implémenté les modules Spring Boot principaux (Revenus, Dépenses, Épargne, Dette, Investissements) avec sécurité JWT et PostgreSQL ; créé des composants Angular autonomes pour les tableaux de bord, graphiques et UX responsive.',
-      ar: 'مطور ويب شامل رئيسي لمنصة التمويل الشخصي: نفذت وحدات سبرينج بوت الأساسية (الدخل، المصروفات، الادخار، الديون، الاستثمارات) مع أمان JWT وبوستجري إس كيو إل؛ صممت مكونات أنجولار مستقلة للوحات التحكم والرسوم البيانية وتجربة المستخدم المتجاوبة.',
-      es: 'Desarrollador full-stack principal de una plataforma de finanzas personales: implementé módulos Spring Boot principales (Ingresos, Gastos, Ahorros, Deudas, Inversiones) con seguridad JWT y PostgreSQL; creé componentes Angular independientes para dashboards, gráficos y UX responsive.'
+      en: 'Lead full-stack developer: implemented core Spring Boot modules (Income, Expense, Savings, Debt, Investments) with JWT security and PostgreSQL. Built Angular standalone components for dashboards, charts, and responsive UX. Designed and deployed production-ready architecture supporting secure financial data management.',
+      fr: 'Développeur full-stack principal : implémenté les modules Spring Boot principaux (Revenus, Dépenses, Épargne, Dette, Investissements) avec sécurité JWT et PostgreSQL. Construit des composants Angular autonomes pour les tableaux de bord, graphiques et UX responsive. Conçu et déployé une architecture prête pour la production supportant la gestion sécurisée des données financières.',
+      ar: 'مطور ويب شامل رئيسي: نفذت وحدات سبرينج بوت الأساسية (الدخل، المصروفات، الادخار، الديون، الاستثمارات) مع أمان JWT وبوستجري إس كيو إل. بنيت مكونات أنجولار مستقلة للوحات التحكم والرسوم البيانية وتجربة المستخدم المتجاوبة. صممت ونشرت هندسة معمارية جاهزة للإنتاج تدعم إدارة آمنة للبيانات المالية.',
+      es: 'Desarrollador full-stack principal: implementé módulos Spring Boot principales (Ingresos, Gastos, Ahorros, Deudas, Inversiones) con seguridad JWT y PostgreSQL. Construí componentes Angular independientes para dashboards, gráficos y UX responsive. Diseñé y desplegué una arquitectura lista para producción que soporta la gestión segura de datos financieros.'
     },
     'projects.climapulse.title': {
       en: 'ClimaPulse',
@@ -1424,10 +1400,10 @@ export class LanguageService {
       es: 'AuraCast'
     },
     'projects.auracast.description': {
-      en: 'A modern, high-performance weather intelligence platform built with Angular 20, designed to provide real-time meteorological data, interactive maps, and advanced atmospheric analytics with a sleek, responsive UI.',
-      fr: 'Une plateforme d\'intelligence météorologique moderne et performante construite avec Angular 20, conçue pour fournir des données météorologiques en temps réel, des cartes interactives et des analyses atmosphériques avancées avec une interface utilisateur élégante et responsive.',
-      ar: 'منصة ذكاء الطقس عالية الأداء الحديثة المبنية على Angular 20، مصممة لتوفير بيانات الأرصاد الجوية في الوقت الفعلي، والخرائط التفاعلية، والتحليلات الجوية المتقدمة مع واجهة مستخدم أنيقة ومتجاوبة.',
-      es: 'Una plataforma de inteligencia meteorológica moderna y de alto rendimiento construida con Angular 20, diseñada para proporcionar datos meteorológicos en tiempo real, mapas interactivos y análisis atmosféricos avanzados con una interfaz de usuario elegante y responsive.'
+      en: 'Built a high-performance, real-time weather analytics platform using Angular 20. Implemented interactive maps, charts, and advanced meteorological analytics with responsive UI.',
+      fr: 'Construit une plateforme d\'analyse météorologique haute performance en temps réel utilisant Angular 20. Implémenté des cartes interactives, des graphiques et des analyses météorologiques avancées avec une interface utilisateur responsive.',
+      ar: 'بنيت منصة تحليل الطقس عالية الأداء في الوقت الفعلي باستخدام Angular 20. نفذت خرائط تفاعلية ورسوم بيانية وتحليلات أرصاد جوية متقدمة مع واجهة مستخدم متجاوبة.',
+      es: 'Construí una plataforma de análisis meteorológico de alto rendimiento en tiempo real usando Angular 20. Implementé mapas interactivos, gráficos y análisis meteorológicos avanzados con interfaz de usuario responsive.'
     },
     'projects.aurafx.title': {
       en: 'AuraFX',
@@ -1436,22 +1412,22 @@ export class LanguageService {
       es: 'AuraFX'
     },
     'projects.aurafx.description': {
-      en: 'A high-performance forex analytics platform built with Angular, designed to provide real-time currency exchange rates, multi-currency conversion, historical data charts, and advanced market insights with a sleek, responsive UI.',
-      fr: 'Une plateforme d\'analyse forex haute performance construite avec Angular, conçue pour fournir des taux de change en temps réel, la conversion multi-devises, des graphiques de données historiques et des informations de marché avancées avec une interface utilisateur élégante et responsive.',
-      ar: 'منصة تحليل فوركس عالية الأداء المبنية على Angular، مصممة لتوفير أسعار صرف العملات في الوقت الفعلي، وتحويل العملات المتعددة، ورسوم بيانية للبيانات التاريخية، ورؤى السوق المتقدمة مع واجهة مستخدم أنيقة ومتجاوبة.',
-      es: 'Una plataforma de análisis de forex de alto rendimiento construida con Angular, diseñada para proporcionar tasas de cambio de divisas en tiempo real, conversión multi-moneda, gráficos de datos históricos e información avanzada del mercado con una interfaz de usuario elegante y responsive.'
+      en: 'Developed a real-time forex analytics platform providing multi-currency conversion, historical charts, and market insights. Built responsive UI components and integrated data visualization with Angular Material and Chart.js.',
+      fr: 'Développé une plateforme d\'analyse forex en temps réel fournissant la conversion multi-devises, des graphiques historiques et des informations de marché. Construit des composants d\'interface utilisateur responsive et intégré la visualisation de données avec Angular Material et Chart.js.',
+      ar: 'طورت منصة تحليل فوركس في الوقت الفعلي توفر تحويل العملات المتعددة والرسوم البيانية التاريخية ورؤى السوق. بنيت مكونات واجهة مستخدم متجاوبة ودمجت تصور البيانات مع Angular Material و Chart.js.',
+      es: 'Desarrollé una plataforma de análisis de forex en tiempo real que proporciona conversión multi-moneda, gráficos históricos e información de mercado. Construí componentes de interfaz de usuario responsive e integré visualización de datos con Angular Material y Chart.js.'
     },
     'projects.introMaster': {
-      en: 'At the heart of my portfolio is Alpha Vault—my flagship accomplishment that brings together vision, precision, and user-focused design. It embodies my dedication to building robust, scalable solutions that empower users to take control of their financial journey.',
-      fr: 'Au cœur de mon portfolio se trouve Alpha Vault—mon accomplissement phare qui réunit vision, précision et design centré sur l\'utilisateur. Il incarne mon dévouement à construire des solutions robustes et évolutives qui permettent aux utilisateurs de prendre le contrôle de leur parcours financier.',
-      ar: 'في قلب محفظتي يوجد Alpha Vault—إنجازي الرائد الذي يجمع بين الرؤية والدقة والتصميم المرتكز على المستخدم. إنه يجسد تفاني في بناء حلول قوية وقابلة للتوسع تمكن المستخدمين من السيطرة على رحلتهم المالية.',
-      es: 'En el corazón de mi portafolio está Alpha Vault—mi logro insignia que reúne visión, precisión y diseño centrado en el usuario. Encarna mi dedicación a construir soluciones robustas y escalables que empoderan a los usuarios para tomar el control de su viaje financiero.'
+      en: 'Master Project — Alpha Vault | Personal Finance Platform',
+      fr: 'Projet Principal — Alpha Vault | Plateforme de Finance Personnelle',
+      ar: 'المشروع الرئيسي — Alpha Vault | منصة التمويل الشخصي',
+      es: 'Proyecto Principal — Alpha Vault | Plataforma de Finanzas Personales'
     },
     'projects.introSecondary': {
-      en: 'Complementing Alpha Vault are three dynamic side ventures—AuraCast, AuraFX, and E-Kanban Integration—each crafted to showcase my versatility and creativity. From delivering real-time insights and engaging experiences to streamlining complex workflows, these projects reflect my ability to innovate quickly and make an impact across diverse domains.',
-      fr: 'Complétant Alpha Vault, trois entreprises dynamiques—AuraCast, AuraFX et l\'intégration E-Kanban—chacune conçue pour mettre en valeur ma polyvalence et ma créativité. De la fourniture d\'informations en temps réel et d\'expériences engageantes à la rationalisation de flux de travail complexes, ces projets reflètent ma capacité à innover rapidement et à avoir un impact dans divers domaines.',
-      ar: 'تكمل Alpha Vault ثلاث مشاريع جانبية ديناميكية—AuraCast وAuraFX وتكامل E-Kanban—كل منها مصمم لعرض تنوعي وإبداعي. من تقديم الرؤى في الوقت الفعلي والتجارب الجذابة إلى تبسيط سير العمل المعقدة، تعكس هذه المشاريع قدرتي على الابتكار بسرعة وإحداث تأثير عبر مجالات متنوعة.',
-      es: 'Complementando Alpha Vault hay tres proyectos dinámicos—AuraCast, AuraFX e Integración E-Kanban—cada uno diseñado para mostrar mi versatilidad y creatividad. Desde entregar información en tiempo real y experiencias atractivas hasta optimizar flujos de trabajo complejos, estos proyectos reflejan mi capacidad para innovar rápidamente y generar impacto en diversos dominios.'
+      en: '',
+      fr: '',
+      ar: '',
+      es: ''
     },
     'projects.technologies.Java': {
       en: 'Java',

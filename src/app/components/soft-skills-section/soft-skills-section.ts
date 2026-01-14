@@ -104,7 +104,7 @@ export class SoftSkillsSectionComponent implements OnInit, OnDestroy {
     return [
       {
         name: 'leadership',
-        icon: '👥',
+        icon: '',
         highlight: true,
         skillKeys: [
           'softSkills.leadership.teamLeadership',
@@ -114,7 +114,7 @@ export class SoftSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'communication',
-        icon: '💬',
+        icon: '',
         highlight: true,
         skillKeys: [
           'softSkills.communication.clearCommunication',
@@ -124,26 +124,15 @@ export class SoftSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'dialogue',
-        icon: '🤝',
+        icon: '',
         skillKeys: [
           'softSkills.dialogue.facilitation',
-          'softSkills.dialogue.conflictResolution',
-          'softSkills.dialogue.activeListening'
-        ]
-      },
-      {
-        name: 'crisis',
-        icon: '⚡',
-        highlight: true,
-        skillKeys: [
-          'softSkills.crisis.management',
-          'softSkills.crisis.firstAid',
-          'softSkills.crisis.stressManagement'
+          'softSkills.dialogue.conflictResolution'
         ]
       },
       {
         name: 'execution',
-        icon: '⚙️',
+        icon: '',
         skillKeys: [
           'softSkills.execution.timeManagement',
           'softSkills.execution.adaptability',
@@ -152,9 +141,8 @@ export class SoftSkillsSectionComponent implements OnInit, OnDestroy {
       },
       {
         name: 'ethics',
-        icon: '🌟',
+        icon: '',
         skillKeys: [
-          'softSkills.ethics.professionalEthics',
           'softSkills.ethics.humanitarian',
           'softSkills.ethics.youthLeadership'
         ]
@@ -163,7 +151,9 @@ export class SoftSkillsSectionComponent implements OnInit, OnDestroy {
   }
 
   private getTranslatedSkills(category: SoftSkillCategory): readonly string[] {
-    return category.skillKeys.map(key => this.languageService.getTranslation(key));
+    return category.skillKeys
+      .map(key => this.languageService.getTranslation(key))
+      .filter(skill => skill && skill.trim().length > 0);
   }
 
   // ============================================================================

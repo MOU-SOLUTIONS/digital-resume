@@ -15,7 +15,7 @@
 // Main Container
 // ============================================================================
 .projects {
-  padding: $education-section-padding;
+  padding: 3rem 0 7rem 0;
   background: var(--bg-primary);
   min-height: calc(100vh - 70px);
   display: flex;
@@ -46,7 +46,7 @@
     font-size: var(--font-size-3xl);
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-2xl;
     text-align: center;
     position: relative;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
@@ -73,7 +73,7 @@
 // ============================================================================
 @include respond-to(md) {
   .projects {
-    padding: $education-section-padding-mobile;
+    padding: 2rem 0 4rem 0;
 
     &__container {
       padding: 0 $spacing-lg;
